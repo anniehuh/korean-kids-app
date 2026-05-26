@@ -1,32 +1,48 @@
-let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [
 
-  {
-    english: "Apple",
-    korean: "사과",
-    pronunciation: "sagwa"
-  },
+// Firebase configuration
+const firebaseConfig ={
+ apiKey: "AIzaSyAkPiVhOhY4TZ_lFH5tYYIGD_i4a8jlRgE", 
+  authDomain: "korean-kids-app-c633b.firebaseapp.com", 
+  projectId: "korean-kids-app-c633b", 
+  storageBucket: "korean-kids-app-c633b.firebasestorage.app", 
+  messagingSenderId: "509357273870", 
+  appId: "1:509357273870:web:80ae09d83c21169693dd5f", 
+  measurementId: "G-4Z2G1MBFGY" 
+};
 
-  {
-    english: "Dog",
-    korean: "개",
-    pronunciation: "gae"
-  },
 
-  {
-    english: "Cat",
-    korean: "고양이",
-    pronunciation: "goyang-i"
-  }
+// Initialize Firebase
 
-];
+firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
+
+let flashcards = [];
 let currentIndex = 0;
 
-function saveFlashcards() {
+// Load words from Firestore
 
-  localStorage.setItem("flashcards", JSON.stringify(flashcards));
+async function loadWords() {
 
+  const snapshot = await db.collection("words").get();
+
+  flashcards = [];
+
+  snapshot.forEach((doc) => {
+
+    flashcards.push({
+      id: doc.id,
+      ...doc.data()
+    });
+
+  });
+
+  if (flashcards.length > 0) {
+    displayCard();
+  }
 }
+
+// Display current card
 
 function displayCard() {
 
@@ -47,38 +63,37 @@ function displayCard() {
 
   document.getElementById("pronunciationInput").value =
     flashcards[currentIndex].pronunciation;
-
 }
+
+// Next card
 
 function nextCard() {
 
   currentIndex++;
 
   if (currentIndex >= flashcards.length) {
-
     currentIndex = 0;
-
   }
 
   displayCard();
-
 }
+
+// Previous card
 
 function previousCard() {
 
   currentIndex--;
 
   if (currentIndex < 0) {
-
     currentIndex = flashcards.length - 1;
-
   }
 
   displayCard();
-
 }
 
-function addWord() {
+// Add word
+
+async function addWord() {
 
   const english =
     document.getElementById("englishInput").value.trim();
@@ -90,74 +105,76 @@ function addWord() {
     document.getElementById("pronunciationInput").value.trim();
 
   if (!english || !korean || !pronunciation) {
-
     alert("Please fill in all fields.");
-
     return;
-
   }
 
-  flashcards.push({
-
-    english: english,
-    korean: korean,
-    pronunciation: pronunciation
-
+  await db.collection("words").add({
+    english,
+    korean,
+    pronunciation,
+    category: "Custom"
   });
 
-  saveFlashcards();
+  
+  
+  await loadWords();
 
   currentIndex = flashcards.length - 1;
 
   displayCard();
 
-  alert("New word added!");
-
+  alert("Word added to database!");
 }
 
-function updateWord() {
+// Update word
 
-  flashcards[currentIndex].english =
-    document.getElementById("englishInput").value;
+async function updateWord() {
 
-  flashcards[currentIndex].korean =
-    document.getElementById("koreanInput").value;
+  const current = flashcards[currentIndex];
 
-  flashcards[currentIndex].pronunciation =
-    document.getElementById("pronunciationInput").value;
+  await db.collection("words")
+    .doc(current.id)
+    .update({
 
-  saveFlashcards();
+      english:
+        document.getElementById("englishInput").value,
 
-  displayCard();
+      korean:
+        document.getElementById("koreanInput").value,
+
+      pronunciation:
+        document.getElementById("pronunciationInput").value
+    });
+
+  await loadWords();
 
   alert("Word updated!");
-
 }
 
-function deleteWord() {
+// Delete word
 
-  if (flashcards.length === 1) {
+async function deleteWord() {
 
-    alert("You need at least one flashcard.");
+  const current = flashcards[currentIndex];
 
-    return;
+  await db.collection("words")
+    .doc(current.id)
+    .delete();
 
-  }
-
-  flashcards.splice(currentIndex, 1);
-
-  saveFlashcards();
+  await loadWords();
 
   if (currentIndex >= flashcards.length) {
-
     currentIndex = flashcards.length - 1;
-
   }
 
-  displayCard();
+  if (flashcards.length > 0) {
+    displayCard();
+  }
 
   alert("Word deleted!");
-
 }
 
-displayCard();
+// Start app
+
+loadWords();
