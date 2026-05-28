@@ -63,6 +63,8 @@ function displayCard() {
 
   document.getElementById("pronunciationInput").value =
     flashcards[currentIndex].pronunciation;
+    
+  document.getElementById("flashcardInner").classList.remove("flipped");
 }
 
 // Next card
@@ -178,3 +180,17 @@ async function deleteWord() {
 // Start app
 
 loadWords();
+
+function flipCard() {
+  document.getElementById("flashcardInner").classList.toggle("flipped");
+}
+
+function speakKorean() {
+  const koreanText = flashcards[currentIndex].korean;
+
+  const speech = new SpeechSynthesisUtterance(koreanText);
+  speech.lang = "ko-KR";
+  speech.rate = 0.8;
+
+  window.speechSynthesis.speak(speech);
+}

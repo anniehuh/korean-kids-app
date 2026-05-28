@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Korean Flashcards</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container">
+
+    <a href="index.html" class="back-home">← Back Home</a>
+
     <h1>🇰🇷 Korean Flashcards</h1>
 
-    <div class="card">
-      <h2 id="englishWord">Apple</h2>
-      <h3 id="koreanWord">사과</h3>
-      <p id="pronunciation">sagwa</p>
+    <div class="flashcard" onclick="flipCard()">
+      <div class="flashcard-inner" id="flashcardInner">
+
+        <div class="flashcard-front">
+          <h2 id="englishWord">Loading...</h2>
+          <p>Click card to see Korean</p>
+        </div>
+
+        <div class="flashcard-back">
+          <h2 id="koreanWord">...</h2>
+          <p id="pronunciation">...</p>
+          <button onclick="event.stopPropagation(); speakKorean();">
+            🔊 Hear Korean
+          </button>
+        </div>
+
+      </div>
     </div>
 
     <div class="buttons">
@@ -22,13 +39,13 @@
       <button onclick="nextCard()">Next ➡</button>
     </div>
 
-    <hr />
+    <hr>
 
     <h2>Add or Edit Words</h2>
 
-    <input type="text" id="englishInput" placeholder="English word" />
-    <input type="text" id="koreanInput" placeholder="Korean word" />
-    <input type="text" id="pronunciationInput" placeholder="Pronunciation" />
+    <input type="text" id="englishInput" placeholder="English word">
+    <input type="text" id="koreanInput" placeholder="Korean word">
+    <input type="text" id="pronunciationInput" placeholder="Pronunciation">
 
     <div class="buttons">
       <button onclick="addWord()">➕ Add Word</button>
@@ -38,8 +55,9 @@
 
   </div>
 
- <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
