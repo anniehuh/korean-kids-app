@@ -194,3 +194,10 @@ function speakKorean() {
 
   window.speechSynthesis.speak(speech);
 }
+if (col < word.length) {
+  cell.textContent = word[col];
+
+  if (document.getElementById("traceMode").checked) {
+    cell.classList.add("trace-letter");
+  }
+}

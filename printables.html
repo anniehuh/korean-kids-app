@@ -1,33 +1,166 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Worksheet Generator</title>
+  <link rel="stylesheet" href="style.css">
 
-  <a href="index.html" class="back-home">← Back Home</a>
+  <style>
+    .generator-box {
+      background: white;
+      padding: 24px;
+      border-radius: 20px;
+      margin: 20px auto;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
 
-  <h1>Printable Exercises</h1>
+    textarea {
+      width: 90%;
+      max-width: 700px;
+      height: 140px;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
 
-  <p>Download and print Korean handwriting worksheets.</p>
+    .worksheet-page {
+  width: 10.6in;
+  height: 8.1in;
+  margin: 0 auto;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  border: 2px solid black;
+  box-sizing: border-box;
+}
 
-  <div class="card-section">
-    <h2>Worksheets</h2>
+.worksheet-cell {
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  font-family: Arial, sans-serif;
+}
 
-    <ul>
-      <li>
-        <a href="worksheets/Korean_Vowels_5x8_Practice.pdf" target="_blank">
-          Korean Vowels Practice — 5 × 8 Grid
-        </a>
-      </li>
+    .trace-letter {
+      color: #cccccc;
+    }
 
-      <li>
-        <a href="worksheets/Korean_Consonants_5x8_Practice.pdf" target="_blank">
-          Korean Consonants Practice — 5 × 8 Grid
-        </a>
-      </li>
+    #worksheetPreview {
+      margin-top: 30px;
+    }
 
-      <li>
-        <a href="worksheets/Korean_Word_Practice.pdf" target="_blank">
-          Korean Word Practice — 5 × 10 Grid
-        </a>
-      </li>
-    </ul>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #worksheetPreview,
+      #worksheetPreview * {
+        visibility: visible;
+      }
+
+      #worksheetPreview {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .worksheet-page {
+        margin: 0;
+        width: 10.6in;
+        height: 8.1in;
+      }
+
+      @page {
+        size: letter landscape;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <a href="index.html" class="back-home">← Back Home</a>
+
+    <h1>Printable Worksheet Generator</h1>
+      <p class="worksheet-note">
+        Landscape letter worksheet: 10 columns × 6 rows
+      </p>
+
+    <div class="generator-box">
+      <p>Enter up to 6 Korean words, one word per line.</p>
+
+      <textarea
+        id="wordInput"
+        autofocus
+        placeholder="엄마&#10;아빠&#10;이모&#10;고모&#10;기차&#10;오이"></textarea>
+
+      <br><br>
+
+      <label>
+        <input type="checkbox" id="traceMode">
+        Traceable Letters (Light Gray)
+      </label>
+
+      <br><br>
+
+      <button onclick="generateWorksheet()">Generate Worksheet</button>
+      <button onclick="window.print()">Print Worksheet</button>
+    </div>
+
+    <div id="worksheetPreview"></div>
+
   </div>
 
-</div>
+  <script>
+    function generateWorksheet() {
+      const input = document.getElementById("wordInput").value;
+
+      const words = input
+        .split("\n")
+        .map(word => word.trim())
+        .filter(word => word.length > 0)
+        .slice(0, 6);
+
+      const traceMode = document.getElementById("traceMode").checked;
+
+      const preview = document.getElementById("worksheetPreview");
+      preview.innerHTML = "";
+
+      const page = document.createElement("div");
+      page.className = "worksheet-page";
+
+      for (let row = 0; row < 6; row++) {
+        const word = words[row] || "";
+
+        for (let col = 0; col < 10; col++) {
+          const cell = document.createElement("div");
+          cell.className = "worksheet-cell";
+
+          if (col < word.length) {
+            cell.textContent = word[col];
+
+            if (traceMode) {
+              cell.classList.add("trace-letter");
+            }
+          }
+
+          page.appendChild(cell);
+        }
+      }
+
+      preview.appendChild(page);
+    }
+  </script>
+</body>
+</html>
