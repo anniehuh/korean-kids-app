@@ -1,166 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Printable Worksheet Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Printable Worksheet Generator</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <style>
-    .generator-box {
-      background: white;
-      padding: 24px;
-      border-radius: 20px;
-      margin: 20px auto;
-      max-width: 900px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    textarea {
-      width: 90%;
-      max-width: 700px;
-      height: 140px;
-      padding: 14px;
-      font-size: 18px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      resize: vertical;
-    }
-
-    .worksheet-page {
-  width: 10.6in;
-  height: 8.1in;
-  margin: 0 auto;
-  background: white;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  border: 2px solid black;
-  box-sizing: border-box;
-}
-
-.worksheet-cell {
-  border: 1px solid black;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 72px;
-  font-family: Arial, sans-serif;
-}
-
-    .trace-letter {
-      color: #cccccc;
-    }
-
-    #worksheetPreview {
-      margin-top: 30px;
-    }
-
-    @media print {
-      body * {
-        visibility: hidden;
+    <style>
+      .generator-box {
+        background: white;
+        padding: 24px;
+        border-radius: 20px;
+        margin: 20px auto;
+        max-width: 900px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       }
 
-      #worksheetPreview,
-      #worksheetPreview * {
-        visibility: visible;
-      }
-
-      #worksheetPreview {
-        position: absolute;
-        left: 0;
-        top: 0;
+      textarea {
+        width: 90%;
+        max-width: 700px;
+        height: 140px;
+        padding: 14px;
+        font-size: 18px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        resize: vertical;
       }
 
       .worksheet-page {
-        margin: 0;
         width: 10.6in;
         height: 8.1in;
+        margin: 30px auto;
+        background: white;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        border: 2px solid black;
+        box-sizing: border-box;
+        page-break-after: always;
       }
 
-      @page {
-        size: letter landscape;
-        margin: 0;
+      .worksheet-page:last-child {
+        page-break-after: auto;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="container">
+      .worksheet-cell {
+        border: 1px solid black;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 72px;
+        font-family: Arial, sans-serif;
+      }
 
-    <a href="index.html" class="back-home">← Back Home</a>
+      .trace-letter {
+        color: #cccccc;
+      }
 
-    <h1>Printable Worksheet Generator</h1>
+      #worksheetPreview {
+        margin-top: 30px;
+      }
+
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+
+        #worksheetPreview,
+        #worksheetPreview * {
+          visibility: visible;
+        }
+
+        #worksheetPreview {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        .worksheet-page {
+          margin: 0;
+          width: 10.6in;
+          height: 8.1in;
+        }
+
+        @page {
+          size: letter landscape;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a href="index.html" class="back-home">← Back Home</a>
+
+      <h1>Printable Worksheet Generator</h1>
       <p class="worksheet-note">
         Landscape letter worksheet: 10 columns × 6 rows
       </p>
 
-    <div class="generator-box">
-      <p>Enter up to 6 Korean words, one word per line.</p>
+      <div class="generator-box">
+        <p>Enter up to 6 Korean words, one word per line.</p>
 
-      <textarea
-        id="wordInput"
-        autofocus
-        placeholder="엄마&#10;아빠&#10;이모&#10;고모&#10;기차&#10;오이"></textarea>
+        <textarea
+          id="wordInput"
+          autofocus
+          placeholder="엄마&#10;아빠&#10;이모&#10;고모&#10;기차&#10;오이"
+        ></textarea>
 
-      <br><br>
+        <br /><br />
 
-      <label>
-        <input type="checkbox" id="traceMode">
-        Traceable Letters (Light Gray)
-      </label>
+        <label>
+          <input type="checkbox" id="traceMode" />
+          Traceable Letters (Light Gray)
+        </label>
 
-      <br><br>
+        <br /><br />
 
-      <button onclick="generateWorksheet()">Generate Worksheet</button>
-      <button onclick="window.print()">Print Worksheet</button>
+        <button onclick="generateWorksheet()">Generate Worksheet</button>
+        <button onclick="window.print()">Print Worksheet</button>
+      </div>
+
+      <div id="worksheetPreview"></div>
     </div>
 
-    <div id="worksheetPreview"></div>
+    <script>
+      function generateWorksheet() {
+        const input = document.getElementById("wordInput").value;
 
-  </div>
+        const words = input
+          .split("\n")
+          .map((word) => word.trim())
+          .filter((word) => word.length > 0)
+          .slice(0, 6);
 
-  <script>
-    function generateWorksheet() {
-      const input = document.getElementById("wordInput").value;
+        const traceMode = document.getElementById("traceMode").checked;
 
-      const words = input
-        .split("\n")
-        .map(word => word.trim())
-        .filter(word => word.length > 0)
-        .slice(0, 6);
+        const preview = document.getElementById("worksheetPreview");
+        preview.innerHTML = "";
 
-      const traceMode = document.getElementById("traceMode").checked;
+        const page = document.createElement("div");
+        page.className = "worksheet-page";
 
-      const preview = document.getElementById("worksheetPreview");
-      preview.innerHTML = "";
+        for (let row = 0; row < 6; row++) {
+          const word = words[row] || "";
 
-      const page = document.createElement("div");
-      page.className = "worksheet-page";
+          for (let col = 0; col < 10; col++) {
+            const cell = document.createElement("div");
+            cell.className = "worksheet-cell";
 
-      for (let row = 0; row < 6; row++) {
-        const word = words[row] || "";
+            if (col < word.length) {
+              cell.textContent = word[col];
 
-        for (let col = 0; col < 10; col++) {
-          const cell = document.createElement("div");
-          cell.className = "worksheet-cell";
-
-          if (col < word.length) {
-            cell.textContent = word[col];
-
-            if (traceMode) {
-              cell.classList.add("trace-letter");
+              if (traceMode) {
+                cell.classList.add("trace-letter");
+              }
             }
+
+            page.appendChild(cell);
           }
-
-          page.appendChild(cell);
         }
-      }
 
-      preview.appendChild(page);
-    }
-  </script>
-</body>
+        preview.appendChild(page);
+      }
+    </script>
+  </body>
 </html>
