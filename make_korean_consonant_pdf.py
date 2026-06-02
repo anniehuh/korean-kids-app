@@ -12,7 +12,7 @@ pages = [
     ["카", "타", "파", "하", ""]
 ]
 
-filename = "Korean_Vowels_5x8_Practice.pdf"
+filename= "worksheets/Korean_Consonants_5x8_Practice.pdf"
 
 c = canvas.Canvas(filename, pagesize=letter)
 page_width, page_height = letter
