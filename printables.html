@@ -55,7 +55,7 @@
       }
 
       .trace-letter {
-        color: #cccccc;
+        color: #d0d0d0;
       }
 
       #worksheetPreview {
@@ -133,37 +133,46 @@
         const words = input
           .split("\n")
           .map((word) => word.trim())
-          .filter((word) => word.length > 0)
-          .slice(0, 6);
+          .filter((word) => word.length > 0);
 
         const traceMode = document.getElementById("traceMode").checked;
 
         const preview = document.getElementById("worksheetPreview");
         preview.innerHTML = "";
 
-        const page = document.createElement("div");
-        page.className = "worksheet-page";
+        const wordsPerPage = 6;
+        const totalPages = Math.ceil(words.length / wordsPerPage);
 
-        for (let row = 0; row < 6; row++) {
-          const word = words[row] || "";
+        for (let pageIndex = 0; pageIndex < totalPages; pageIndex++) {
+          const pageWords = words.slice(
+            pageIndex * wordsPerPage,
+            pageIndex * wordsPerPage + wordsPerPage,
+          );
 
-          for (let col = 0; col < 10; col++) {
-            const cell = document.createElement("div");
-            cell.className = "worksheet-cell";
+          const page = document.createElement("div");
+          page.className = "worksheet-page";
 
-            if (col < word.length) {
-              cell.textContent = word[col];
+          for (let row = 0; row < 6; row++) {
+            const word = pageWords[row] || "";
 
-              if (traceMode) {
-                cell.classList.add("trace-letter");
+            for (let col = 0; col < 10; col++) {
+              const cell = document.createElement("div");
+              cell.className = "worksheet-cell";
+
+              if (col < word.length) {
+                cell.textContent = word[col];
+
+                if (traceMode) {
+                  cell.classList.add("trace-letter");
+                }
               }
+
+              page.appendChild(cell);
             }
-
-            page.appendChild(cell);
           }
-        }
 
-        preview.appendChild(page);
+          preview.appendChild(page);
+        }
       }
     </script>
   </body>
