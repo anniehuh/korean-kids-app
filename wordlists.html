@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Lists</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .word-section {
+        background: white;
+        border-radius: 18px;
+        padding: 22px;
+        margin: 22px auto;
+        max-width: 900px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        text-align: left;
+      }
+
+      .word-section h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      .word-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      .word-chip {
+        background: #f0f8ff;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a href="index.html" class="back-home">← Back Home</a>
+
+      <h1>Word Lists</h1>
+
+      <p>Browse Korean words by category.</p>
+
+      <div id="wordListContainer"></div>
+    </div>
+
+    <script>
+      const categoryNames = {
+        people: "People (사람)",
+        animals: "Animals (동물)",
+        vegetables: "Vegetables (채소)",
+        fruits: "Fruits (과일)",
+        things: "Things (사물)",
+        places: "Places (장소)",
+        verbs: "Verbs (동사)",
+        descriptions: "Descriptions (묘사)",
+        responses: "Responses (대답)",
+        colors: "Colors (색깔)",
+        numbers: "Numbers (숫자)",
+      };
+
+      async function loadWordLists() {
+        const response = await fetch("wordlists/kids_words.json");
+        const data = await response.json();
+
+        const container = document.getElementById("wordListContainer");
+        container.innerHTML = "";
+
+        for (const category in data.nouns) {
+          createWordSection(categoryNames[category], data.nouns[category]);
+        }
+
+        createWordSection(categoryNames.verbs, data.verbs);
+
+        for (const category in data.others) {
+          createWordSection(categoryNames[category], data.others[category]);
+        }
+      }
+
+      function createWordSection(title, words) {
+        const container = document.getElementById("wordListContainer");
+
+        const section = document.createElement("section");
+        section.className = "word-section";
+
+        const heading = document.createElement("h2");
+        heading.textContent = title;
+
+        const grid = document.createElement("div");
+        grid.className = "word-grid";
+
+        words.forEach((word) => {
+          const chip = document.createElement("span");
+          chip.className = "word-chip";
+          chip.textContent = word;
+          grid.appendChild(chip);
+        });
+
+        section.appendChild(heading);
+        section.appendChild(grid);
+        container.appendChild(section);
+      }
+
+      loadWordLists();
+    </script>
+  </body>
+</html>
