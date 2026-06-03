@@ -28,16 +28,15 @@
       }
 
       .worksheet-page {
-        width: 10.6in;
+        width: 10.2in;
         height: 8.1in;
         margin: 30px auto;
         background: white;
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(6, 1fr);
-        border: 2px solid black;
-        box-sizing: border-box;
         page-break-after: always;
+        break-after: page;
       }
 
       .worksheet-page:last-child {
@@ -64,6 +63,11 @@
       }
 
       @media print {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
         body * {
           visibility: hidden;
         }
@@ -81,8 +85,8 @@
 
         .worksheet-page {
           margin: 0;
-          width: 10.6in;
-          height: 8.1in;
+          width: 10.4in;
+          height: 7.5in;
         }
 
         @page {
@@ -98,36 +102,37 @@
       <a href="index.html" class="back-home">← Back Home</a>
 
       <h1>Printable Worksheet Generator</h1>
-      <p class="worksheet-note">
-        Landscape letter worksheet: 10 columns × 6 rows
-      </p>
+
       <div class="card-section">
         <h2>Beginner Worksheets</h2>
-
-        <p>
+        <p class="beginner-note">
           These worksheets are designed for children who are just beginning to
           learn Hangul (한글).
         </p>
 
         <ul style="font-size: 20px; line-height: 2">
-          <li>
-            <a href="worksheets/Korean_Vowels_5x8_Practice.pdf" target="_blank">
-              Korean Vowels Practice (5 × 8)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="worksheets/Korean_consonants_5x8_Practice.pdf"
-              target="_blank"
-            >
-              Korean Consonants Practice (5 × 8)
-            </a>
-          </li>
+          <a
+            class="pdf-card"
+            href="worksheets/Korean_consonants_5x8_Practice.pdf"
+            target="_blank"
+          >
+            📄 Korean Consonants Practice (5 × 8)
+          </a>
+          <a
+            class="pdf-card"
+            href="worksheets/Korean_Vowels_5x8_Practice.pdf"
+            target="_blank"
+          >
+            📄 Korean Vowels Practice (5 × 8)
+          </a>
         </ul>
       </div>
       <div class="generator-box">
-        <p>Enter words to practice writing, one word per line.</p>
+        <p class="worksheet-note">
+          <strong>Printable Worksheet Format:</strong> 10 Columns × 6 Rows
+        </p>
+
+        <p>Enter words to practice writing</p>
 
         <textarea
           id="wordInput"
@@ -136,16 +141,15 @@
         ></textarea>
 
         <br /><br />
-
-        <label>
+        <label class="trace-option">
           <input type="checkbox" id="traceMode" />
-          Traceable Letters
+          <span>For tracing letters, check this box</span>
         </label>
 
         <br /><br />
 
-        <button onclick="generateWorksheet()">Generate Worksheet</button>
-        <button onclick="window.print()">Print Worksheet</button>
+        <button onclick="generateWorksheet()">Worksheet Preview</button>
+        <button onclick="printWorksheet()">Print Worksheet</button>
       </div>
 
       <div id="worksheetPreview"></div>
@@ -198,6 +202,12 @@
 
           preview.appendChild(page);
         }
+      }
+      function printWorksheet() {
+        generateWorksheet();
+        setTimeout(function () {
+          window.print();
+        }, 200);
       }
     </script>
   </body>
