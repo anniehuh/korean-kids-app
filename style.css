@@ -303,3 +303,44 @@ input {
 .trace-option span {
   white-space: nowrap;
 }
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin: 20px auto 30px;
+  padding: 12px;
+
+  background: #f8f9fa;
+  border-radius: 16px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px 16px;
+
+  background: #4caf50;
+  color: white;
+
+  border-radius: 10px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  background: #388e3c;
+  transform: translateY(-2px);
+}
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+  font-size: 14px;
+}
+.navbar a.active {
+  background: #ffcc33;
+  color: #333;
+  font-weight: bold;
+}
