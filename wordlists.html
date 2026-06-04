@@ -12,31 +12,61 @@
         border-radius: 18px;
         padding: 22px;
         margin: 22px auto;
-        max-width: 900px;
+        max-width: 1000px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-        text-align: left;
-      }
-
-      .word-section h2 {
-        text-align: center;
-        color: #333;
       }
 
       .word-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 14px;
+        margin-top: 18px;
       }
 
-      .word-chip {
+      .word-card {
         background: #f0f8ff;
-        padding: 10px 16px;
-        border-radius: 999px;
-        font-size: 22px;
-        font-weight: 600;
-        color: #333;
+        border-radius: 18px;
+        padding: 18px 10px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      .word-emoji {
+        font-size: 34px;
+      }
+
+      .word-korean {
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 8px;
+      }
+
+      .word-english {
+        font-size: 16px;
+        color: #555;
+        margin-top: 4px;
+      }
+
+      .simple-list {
+        display: block;
+        max-width: 500px;
+        margin: 18px auto 0;
+      }
+
+      .simple-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+        padding: 10px 6px;
+        font-size: 24px;
+      }
+
+      .simple-korean {
+        font-weight: bold;
+      }
+
+      .simple-english {
+        color: #555;
       }
     </style>
   </head>
@@ -46,7 +76,6 @@
       <a href="index.html" class="back-home">← Back Home</a>
 
       <h1>Word Lists</h1>
-
       <p>Browse Korean words by category.</p>
 
       <div id="wordListContainer"></div>
@@ -61,10 +90,159 @@
         things: "Things (사물)",
         places: "Places (장소)",
         verbs: "Verbs (동사)",
-        descriptions: "Descriptions (묘사)",
+        descriptions: "Describing Words (설명)",
         responses: "Responses (대답)",
         colors: "Colors (색깔)",
         numbers: "Numbers (숫자)",
+      };
+
+      const wordInfo = {
+        엄마: ["Mom", "👩"],
+        아빠: ["Dad", "👨"],
+        아기: ["Baby", "👶"],
+        형: ["Older brother", "👦"],
+        누나: ["Older sister", "👧"],
+        언니: ["Older sister", "👧"],
+        동생: ["Younger sibling", "🧒"],
+        할머니: ["Grandma", "👵"],
+        할아버지: ["Grandpa", "👴"],
+        선생님: ["Teacher", "👩‍🏫"],
+        삼촌: ["Uncle", "👨"],
+        이모: ["Aunt", "👩"],
+        고모: ["Aunt", "👩"],
+
+        개: ["Dog", "🐶"],
+        고양이: ["Cat", "🐱"],
+        토끼: ["Rabbit", "🐰"],
+        여우: ["Fox", "🦊"],
+        곰: ["Bear", "🐻"],
+        사자: ["Lion", "🦁"],
+        호랑이: ["Tiger", "🐯"],
+        원숭이: ["Monkey", "🐵"],
+        기린: ["Giraffe", "🦒"],
+        코끼리: ["Elephant", "🐘"],
+        판다: ["Panda", "🐼"],
+        개미: ["Ant", "🐜"],
+        새: ["Bird", "🐦"],
+        물고기: ["Fish", "🐟"],
+        소: ["Cow", "🐮"],
+        닭: ["Chicken", "🐔"],
+
+        오이: ["Cucumber", "🥒"],
+        당근: ["Carrot", "🥕"],
+        양파: ["Onion", "🧅"],
+        감자: ["Potato", "🥔"],
+        고구마: ["Sweet potato", "🍠"],
+        배추: ["Cabbage", "🥬"],
+        무: ["Radish", "🥬"],
+        브로콜리: ["Broccoli", "🥦"],
+        파: ["Green onion", "🧅"],
+        마늘: ["Garlic", "🧄"],
+
+        사과: ["Apple", "🍎"],
+        바나나: ["Banana", "🍌"],
+        딸기: ["Strawberry", "🍓"],
+        포도: ["Grapes", "🍇"],
+        수박: ["Watermelon", "🍉"],
+        귤: ["Tangerine", "🍊"],
+        복숭아: ["Peach", "🍑"],
+        배: ["Pear", "🍐"],
+        망고: ["Mango", "🥭"],
+        블루베리: ["Blueberry", "🫐"],
+
+        책: ["Book", "📖"],
+        연필: ["Pencil", "✏️"],
+        공: ["Ball", "⚽"],
+        가방: ["Bag", "🎒"],
+        의자: ["Chair", "🪑"],
+        책상: ["Desk", "🧑‍💻"],
+        시계: ["Clock", "🕒"],
+        우산: ["Umbrella", "☂️"],
+        모자: ["Hat", "🧢"],
+        컵: ["Cup", "🥤"],
+        밥: ["Rice/meal", "🍚"],
+        반찬: ["Side dish", "🍱"],
+        방망이: ["Bat", "🏏"],
+        그릇: ["Bowl", "🥣"],
+        비행기: ["Airplane", "✈️"],
+        로봇: ["Robot", "🤖"],
+        변신로봇: ["Transforming robot", "🤖"],
+        루빅큐브: ["Rubik's cube", "🎲"],
+        옷: ["Clothes", "👕"],
+        신발: ["Shoes", "👟"],
+        양말: ["Socks", "🧦"],
+        바지: ["Pants", "👖"],
+
+        집: ["House", "🏠"],
+        학교: ["School", "🏫"],
+        공원: ["Park", "🌳"],
+        도서관: ["Library", "📚"],
+        병원: ["Hospital", "🏥"],
+        가게: ["Store", "🏪"],
+        놀이터: ["Playground", "🛝"],
+        방: ["Room", "🚪"],
+        바다: ["Sea", "🌊"],
+        호수: ["Lake", "🏞️"],
+        강: ["River", "🌊"],
+        하늘: ["Sky", "☁️"],
+        땅: ["Ground", "🌱"],
+
+        빨강: ["Red", "🔴"],
+        파랑: ["Blue", "🔵"],
+        노랑: ["Yellow", "🟡"],
+        초록: ["Green", "🟢"],
+        보라: ["Purple", "🟣"],
+        하양: ["White", "⚪"],
+        검정: ["Black", "⚫"],
+
+        하나: ["One", "1️⃣"],
+        둘: ["Two", "2️⃣"],
+        셋: ["Three", "3️⃣"],
+        넷: ["Four", "4️⃣"],
+        다섯: ["Five", "5️⃣"],
+        여섯: ["Six", "6️⃣"],
+        일곱: ["Seven", "7️⃣"],
+        여덟: ["Eight", "8️⃣"],
+        아홉: ["Nine", "9️⃣"],
+        열: ["Ten", "🔟"],
+
+        가다: ["Go", ""],
+        오다: ["Come", ""],
+        먹다: ["Eat", ""],
+        마시다: ["Drink", ""],
+        보다: ["See", ""],
+        읽다: ["Read", ""],
+        쓰다: ["Write", ""],
+        자다: ["Sleep", ""],
+        뛰다: ["Run", ""],
+        앉다: ["Sit", ""],
+        기다: ["Crawl", ""],
+        기다리다: ["Wait", ""],
+        사다: ["Buy", ""],
+        하다: ["Do", ""],
+        공부하다: ["Study", ""],
+        꿈꾸다: ["Dream", ""],
+        신다: ["Wear shoes/socks", ""],
+        벗다: ["Take off", ""],
+
+        강하다: ["Strong", ""],
+        약하다: ["Weak", ""],
+        크다: ["Big", ""],
+        작다: ["Small", ""],
+        빠르다: ["Fast", ""],
+        느리다: ["Slow", ""],
+        맛있다: ["Delicious", ""],
+        맛없다: ["Not delicious", ""],
+        예쁘다: ["Pretty", ""],
+        밉다: ["Mean/ugly", ""],
+        잘하다: ["Do well", ""],
+        못하다: ["Cannot do well", ""],
+        멋있다: ["Cool", ""],
+
+        응: ["Yes", ""],
+        네: ["Yes", ""],
+        아니: ["No", ""],
+        아니요: ["No", ""],
       };
 
       async function loadWordLists() {
@@ -74,18 +252,27 @@
         const container = document.getElementById("wordListContainer");
         container.innerHTML = "";
 
+        createWordSection(categoryNames.responses, data.others.responses, true);
+        createWordSection(categoryNames.colors, data.others.colors, false);
+        createWordSection(categoryNames.numbers, data.others.numbers, false);
+
         for (const category in data.nouns) {
-          createWordSection(categoryNames[category], data.nouns[category]);
+          createWordSection(
+            categoryNames[category],
+            data.nouns[category],
+            false,
+          );
         }
 
-        createWordSection(categoryNames.verbs, data.verbs);
-
-        for (const category in data.others) {
-          createWordSection(categoryNames[category], data.others[category]);
-        }
+        createWordSection(categoryNames.verbs, data.verbs, true);
+        createWordSection(
+          categoryNames.descriptions,
+          data.others.descriptions,
+          true,
+        );
       }
 
-      function createWordSection(title, words) {
+      function createWordSection(title, words, simpleList) {
         const container = document.getElementById("wordListContainer");
 
         const section = document.createElement("section");
@@ -95,13 +282,33 @@
         heading.textContent = title;
 
         const grid = document.createElement("div");
-        grid.className = "word-grid";
+        grid.className = simpleList ? "simple-list" : "word-grid";
 
         words.forEach((word) => {
-          const chip = document.createElement("span");
-          chip.className = "word-chip";
-          chip.textContent = word;
-          grid.appendChild(chip);
+          const info = wordInfo[word] || ["", ""];
+
+          if (simpleList) {
+            const row = document.createElement("div");
+            row.className = "simple-row";
+
+            row.innerHTML = `
+            <span class="simple-korean">${word}</span>
+            <span class="simple-english">${info[0]}</span>
+          `;
+
+            grid.appendChild(row);
+          } else {
+            const card = document.createElement("div");
+            card.className = "word-card";
+
+            card.innerHTML = `
+            <div class="word-emoji">${info[1]}</div>
+            <div class="word-korean">${word}</div>
+            <div class="word-english">${info[0]}</div>
+          `;
+
+            grid.appendChild(card);
+          }
         });
 
         section.appendChild(heading);
