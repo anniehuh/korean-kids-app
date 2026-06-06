@@ -220,7 +220,16 @@
         );
 
         if (selectedWords.length > 0) {
-          document.getElementById("wordInput").value = selectedWords.join("\n");
+          const koreanWords = selectedWords.map((item) => {
+            if (typeof item === "string") {
+              return item;
+            }
+
+            return item.korean;
+          });
+
+          document.getElementById("wordInput").value = koreanWords.join("\n");
+
           generateWorksheet();
         }
       });
