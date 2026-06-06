@@ -68,6 +68,103 @@
       .simple-english {
         color: #555;
       }
+      .word-card {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .word-card.selected {
+        background: #d9f7d9;
+        border: 3px solid #4caf50;
+      }
+
+      .word-card.selected::before {
+        content: "✓";
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        background: #4caf50;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 26px;
+      }
+      .simple-row {
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      .simple-row.selected {
+        background: #d9f7d9;
+        border: 2px solid #4caf50;
+        padding: 10px 12px;
+      }
+
+      .simple-row.selected::before {
+        content: "✓ ";
+        color: #4caf50;
+        font-weight: bold;
+      }
+      #selectedWordsPanel {
+        position: fixed;
+        top: 140px;
+        right: 20px;
+
+        width: 180px;
+
+        background: #fff4cc;
+        border: 2px solid #f4c542;
+        border-radius: 12px;
+
+        padding: 12px;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+        z-index: 1000;
+      }
+
+      #selectedWordsPanel h3 {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      #selectedWordsText {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      #selectedWordsText {
+        max-height: 250px;
+        overflow-y: auto;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .study-button,
+      .clear-button {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        padding: 10px;
+
+        border: none;
+        border-radius: 10px;
+
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .study-button {
+        background: #4caf50;
+        color: white;
+      }
+
+      .clear-button {
+        background: #ffdddd;
+        color: #a33;
+      }
     </style>
   </head>
 
@@ -250,7 +347,102 @@
         아니: ["No", ""],
         아니요: ["No", ""],
       };
+      function updateSelectedWords() {
+        const selected = document.querySelectorAll(".selected");
+        const words = [];
 
+        selected.forEach((item) => {
+          const korean =
+            item.querySelector(".word-korean")?.textContent ||
+            item.querySelector(".simple-korean")?.textContent;
+
+          if (korean) {
+            words.push(korean);
+          }
+        });
+
+        const display = document.getElementById("selectedWordsText");
+
+        if (words.length === 0) {
+          display.innerHTML = "None";
+        } else {
+          display.innerHTML = words.join("<br>");
+        }
+      }
+      function updateSelectedWords() {
+        const selected = document.querySelectorAll(".selected");
+        const words = [];
+
+        selected.forEach((item) => {
+          const korean =
+            item.querySelector(".word-korean")?.textContent ||
+            item.querySelector(".simple-korean")?.textContent;
+
+          if (korean) {
+            words.push(korean);
+          }
+        });
+
+        const display = document.getElementById("selectedWordsText");
+        const title = document.getElementById("selectedTitle");
+        if (words.length === 0) {
+          display.innerHTML = "None";
+          title.innerHTML = "0 words selected";
+        } else {
+          display.innerHTML = words.join("<br>");
+          title.innerHTML = `${words.length} words selected`;
+        }
+      }
+      function getSelectedWords() {
+        const selected = document.querySelectorAll(".selected");
+        const words = [];
+
+        selected.forEach((item) => {
+          const korean =
+            item.querySelector(".word-korean")?.textContent ||
+            item.querySelector(".simple-korean")?.textContent;
+
+          if (korean) {
+            words.push(korean);
+          }
+        });
+
+        return words;
+      }
+
+      function practiceFlashcards() {
+        const words = getSelectedWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createWorksheet() {
+        const words = getSelectedWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "printables.html";
+      }
+
+      function clearSelection() {
+        document.querySelectorAll(".selected").forEach((item) => {
+          item.classList.remove("selected");
+        });
+
+        updateSelectedWords();
+        localStorage.removeItem("selectedWords");
+      }
+      loadWordLists();
       async function loadWordLists() {
         const response = await fetch("wordlists/kids_words.json");
         const data = await response.json();
@@ -296,7 +488,10 @@
           if (simpleList) {
             const row = document.createElement("div");
             row.className = "simple-row";
-
+            row.onclick = function () {
+              row.classList.toggle("selected");
+              updateSelectedWords();
+            };
             row.innerHTML = `
             <span class="simple-korean">${word}</span>
             <span class="simple-english">${info[0]}</span>
@@ -306,6 +501,10 @@
           } else {
             const card = document.createElement("div");
             card.className = "word-card";
+            card.onclick = function () {
+              card.classList.toggle("selected");
+              updateSelectedWords();
+            };
 
             card.innerHTML = `
             <div class="word-emoji">${info[1]}</div>
@@ -324,6 +523,23 @@
 
       loadWordLists();
     </script>
+    <div id="selectedWordsPanel">
+      <h3>📚 Select Words to Study</h3>
+      <p id="selectedTitle">0 words selected</p>
+      <div id="selectedWordsText">None</div>
+
+      <button onclick="practiceFlashcards()" class="study-button">
+        🃏 Practice Flashcards
+      </button>
+
+      <button onclick="createWorksheet()" class="study-button">
+        ✏️ Create Worksheet
+      </button>
+
+      <button onclick="clearSelection()" class="clear-button">
+        🗑️ Clear Selection
+      </button>
+    </div>
   </body>
   <footer class="footer">
     <p>© 2026 Halmoni Tells</p>
