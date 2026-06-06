@@ -402,14 +402,22 @@
             item.querySelector(".word-korean")?.textContent ||
             item.querySelector(".simple-korean")?.textContent;
 
+          const english =
+            item.querySelector(".word-english")?.textContent ||
+            item.querySelector(".simple-english")?.textContent ||
+            "";
+
           if (korean) {
-            words.push(korean);
+            words.push({
+              korean: korean,
+              english: english,
+              pronunciation: "",
+            });
           }
         });
 
         return words;
       }
-
       function practiceFlashcards() {
         const words = getSelectedWords();
 
@@ -540,8 +548,8 @@
         🗑️ Clear Selection
       </button>
     </div>
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
   </body>
-  <footer class="footer">
-    <p>© 2026 Halmoni Tells</p>
-  </footer>
 </html>

@@ -214,6 +214,16 @@
           window.print();
         }, 200);
       }
+      window.addEventListener("DOMContentLoaded", function () {
+        const selectedWords = JSON.parse(
+          localStorage.getItem("selectedWords") || "[]",
+        );
+
+        if (selectedWords.length > 0) {
+          document.getElementById("wordInput").value = selectedWords.join("\n");
+          generateWorksheet();
+        }
+      });
     </script>
   </body>
   <footer class="footer">
