@@ -1,26 +1,81 @@
-<link rel="stylesheet" href="style.css" />
-<body>
-  <nav class="navbar">
-    <a href="index.html">🏠 Home</a>
-    <a href="dokkaebi.html">✨ Dokkaebi</a>
-    <a href="wordlists.html">📚 Word Lists</a>
-    <a href="printables.html">✏️ Worksheets</a>
-    <a href="stories.html" class="active">📖 Stories</a>
-    <a href="flashcards.html">🃏 Flashcards</a>
-  </nav>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stories - Halmoni Tells</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <h1>Stories</h1>
+    <style>
+      .story-section {
+        background: white;
+        border-radius: 20px;
+        padding: 28px;
+        margin: 24px auto;
+        max-width: 900px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
 
-  <h2>아기와 여우</h2>
+      .story-card {
+        display: block;
+        background: #f0f8ff;
+        border-radius: 18px;
+        padding: 24px;
+        margin: 20px auto;
+        max-width: 700px;
+        text-decoration: none;
+        color: #333;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      }
 
-  <img
-    src="images/vowel_story.png"
-    alt="Korean story: 아기와 여우"
-    style="max-width: 100%"
-  />
+      .story-card:hover {
+        background: #e8f4ff;
+        transform: translateY(-3px);
+      }
 
-  <br /><br />
-  <footer class="footer">
-    <p>© 2026 Halmoni Tells</p>
-  </footer>
-</body>
+      .story-card h2 {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      .story-card p {
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="dokkaebi.html">✨ Dokkaebi</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html" class="active">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+    </nav>
+
+    <div class="container">
+      <h1>📖 Stories</h1>
+
+      <section class="story-section">
+        <p>
+          Read Korean stories with Min and Jin, the kind dokkaebi brothers. Each
+          story reveals a little more magic.
+        </p>
+
+        <a href="story-optimus-prime.html" class="story-card">
+          <h2>🤖 잃어버린 옵티머스 프라임</h2>
+          <p>
+            민이의 가장 좋아하는 장난감이 사라졌어요! 형 진이와 함께 찾아보세요.
+          </p>
+        </a>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
+  </body>
+</html>

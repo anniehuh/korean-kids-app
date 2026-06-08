@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>잃어버린 옵티머스 프라임 - Halmoni Tells</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .story-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .story-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        margin-bottom: 25px;
+      }
+
+      .story-card h1 {
+        text-align: center;
+      }
+
+      .story-text {
+        font-size: 1.3rem;
+        line-height: 2;
+        text-align: center;
+      }
+
+      .story-image {
+        text-align: center;
+        margin: 25px 0;
+      }
+
+      .story-image img {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 16px;
+      }
+
+      .vocab-section {
+        background: #f8fbff;
+        border-radius: 20px;
+        padding: 25px;
+        margin-top: 30px;
+      }
+
+      .vocab-section h2 {
+        text-align: center;
+      }
+
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .vocab-word {
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        border: 3px solid transparent;
+      }
+
+      .vocab-word:hover {
+        background: #fffde7;
+      }
+
+      .vocab-word.selected {
+        background: #fff9c4;
+        border-color: #fbc02d;
+      }
+
+      .korean {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .english {
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .story-buttons {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .story-buttons button {
+        padding: 12px 20px;
+        margin: 8px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .flashcard-btn {
+        background: #bbdefb;
+      }
+
+      .worksheet-btn {
+        background: #c8e6c9;
+      }
+
+      .selection-box {
+        margin-top: 25px;
+        text-align: center;
+        background: #fffde7;
+        padding: 15px;
+        border-radius: 12px;
+      }
+      .story-panel {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .story-panel img {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+
+      .story-panel p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="dokkaebi.html">✨ Dokkaebi</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html" class="active">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+    </nav>
+    <div class="story-container">
+      <h1>🤖 잃어버린 옵티머스 프라임</h1>
+
+      <div class="story-panel">
+        <img
+          src="images/story-optimus-1.png"
+          alt="민이가 옵티머스 프라임과 놀아요"
+        />
+      </div>
+      <div class="story-panel">
+        <img
+          src="images/story-optimus-2.png"
+          alt="옵티머스 프라임이 없어졌어요"
+        />
+      </div>
+      <div class="story-panel">
+        <img src="images/story-optimus-3.png" alt="민이의 방망이" />
+      </div>
+      <div class="story-panel">
+        <img src="images/story-optimus-4.png" alt="진이의 황금빛 길" />
+      </div>
+      <div class="story-panel">
+        <img
+          src="images/story-optimus-5.png"
+          alt="옵티머스 프라임을 찾았어요"
+        />
+      </div>
+      <div class="story-panel">
+        <img src="images/story-optimus-6.png" alt="민이와 진이" />
+      </div>
+
+      <div class="vocab-section">
+        <h2>📚 오늘의 단어</h2>
+      </div>
+      <div class="vocab-grid">
+        <div class="vocab-word">
+          <div class="korean">형</div>
+          <div class="english">Older Brother</div>
+        </div>
+
+        <div class="vocab-word">
+          <div class="korean">방망이</div>
+          <div class="english">Bat</div>
+        </div>
+
+        <div class="vocab-word">
+          <div class="korean">빛</div>
+          <div class="english">Light</div>
+        </div>
+
+        <div class="vocab-word">
+          <div class="korean">길</div>
+          <div class="english">Path</div>
+        </div>
+
+        <div class="vocab-word">
+          <div class="korean">찾다</div>
+          <div class="english">Find</div>
+        </div>
+
+        <div class="vocab-word">
+          <div class="korean">배우다</div>
+          <div class="english">Learn</div>
+        </div>
+      </div>
+
+      <div class="story-buttons">
+        <button class="flashcard-btn">🃏 Practice Story Words</button>
+
+        <button class="worksheet-btn">✏️ Create Story Worksheet</button>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
+  </body>
+</html>
