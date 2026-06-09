@@ -185,43 +185,136 @@
         <h2>📚 오늘의 단어</h2>
       </div>
       <div class="vocab-grid">
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">형</div>
           <div class="english">Older Brother</div>
         </div>
 
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">방망이</div>
           <div class="english">Bat</div>
         </div>
 
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">빛</div>
           <div class="english">Light</div>
         </div>
 
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">길</div>
           <div class="english">Path</div>
         </div>
 
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">찾다</div>
           <div class="english">Find</div>
         </div>
 
-        <div class="vocab-word">
+        <div class="vocab-word" onclick="toggleStoryWord(this)">
           <div class="korean">배우다</div>
           <div class="english">Learn</div>
         </div>
       </div>
 
       <div class="story-buttons">
-        <button class="flashcard-btn">🃏 Practice Story Words</button>
+        <button class="flashcard-btn" onclick="practiceStoryWords()">
+          🃏 Practice Story Words
+        </button>
 
-        <button class="worksheet-btn">✏️ Create Story Worksheet</button>
+        <button class="worksheet-btn" onclick="createStoryWorksheet()">
+          ✏️ Create Story Worksheet
+        </button>
       </div>
     </div>
+    <script>
+      function toggleWord(element) {
+        element.classList.toggle("selected");
+      }
+      function getSelectedStoryWords() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        const words = [];
+
+        selected.forEach((item) => {
+          words.push({
+            korean: item.querySelector(".korean").textContent,
+            english: item.querySelector(".english").textContent,
+          });
+        });
+
+        return words;
+      }
+      function practiceStoryWords() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+
+        window.location.href = "flashcards.html";
+      }
+
+      function createStoryWorksheet() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        const koreanWords = words.map((word) => word.korean);
+
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
+        window.location.href = "printables.html";
+      }
+
+      function toggleStoryWord(element) {
+        element.classList.toggle("selected");
+      }
+
+      function getSelectedStoryWords() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+        const words = [];
+
+        selected.forEach((item) => {
+          words.push({
+            korean: item.querySelector(".korean").textContent,
+            english: item.querySelector(".english").textContent,
+            pronunciation: "",
+          });
+        });
+
+        return words;
+      }
+
+      function practiceStoryWords() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createStoryWorksheet() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "printables.html";
+      }
+    </script>
     <footer class="footer">
       <p>© 2026 Halmoni Tells</p>
     </footer>
