@@ -1,79 +1,167 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stories - Halmoni Tells</title>
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stories - Halmoni Tells</title>
 
-    <style>
-      .story-section {
-        background: white;
-        border-radius: 20px;
-        padding: 28px;
-        margin: 24px auto;
-        max-width: 900px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      }
+  <link rel="stylesheet" href="style.css">
 
-      .story-card {
-        display: block;
-        background: #f0f8ff;
-        border-radius: 18px;
-        padding: 24px;
-        margin: 20px auto;
-        max-width: 700px;
-        text-decoration: none;
-        color: #333;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-      }
+  <style>
+    .section-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
 
-      .story-card:hover {
-        background: #e8f4ff;
-        transform: translateY(-3px);
-      }
+    .section-card h2 {
+      text-align: center;
+      margin-top: 0;
+    }
 
-      .story-card h2 {
-        margin-top: 0;
-        text-align: center;
-      }
+    .hero-image {
+      text-align: center;
+      margin: 25px 0;
+    }
 
-      .story-card p {
-        font-size: 18px;
-        line-height: 1.6;
-        text-align: center;
-      }
-    </style>
-  </head>
+    .hero-image img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 20px;
+    }
 
-  <body>
-    <nav class="navbar">
-      <a href="index.html">🏠 Home</a>
-      <a href="dokkaebi.html">✨ Dokkaebi</a>
-      <a href="wordlists.html">📚 Word Lists</a>
-      <a href="printables.html">✏️ Worksheets</a>
-      <a href="stories.html" class="active">📖 Stories</a>
-      <a href="flashcards.html">🃏 Flashcards</a>
-    </nav>
+    .story-card {
+      display: block;
+      background: #f8fbff;
+      border-radius: 18px;
+      padding: 25px;
+      margin: 20px 0;
+      text-decoration: none;
+      color: #333;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
 
-    <div class="container">
-      <h1>📖 Stories</h1>
+    .story-card:hover {
+      border-color: #90caf9;
+      transform: translateY(-2px);
+    }
+
+    .story-card h3 {
+      margin-top: 0;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="wordlists.html">📚 Word Lists</a>
+    <a href="printables.html">✏️ Worksheets</a>
+    <a href="stories.html" class="active">📖 Stories</a>
+    <a href="flashcards.html">🃏 Flashcards</a>
+    <a href="rewards.html">🏆 Rewards</a>
+  </nav>
+
+  <div class="container">
+
+    
+
+    <div class="section-card">
+
+      <h2>What is a Dokkaebi? 도깨비란?</h2>
+
       <p>
-        Read Korean stories with Min and Jin, the kind dokkaebi brothers. Each
-        story reveals a little more magic.
+        A dokkaebi (도깨비) is a magical being from Korean folktales.
       </p>
-      <section class="story-section">
-        <a href="story-optimus-prime.html" class="story-card">
-          <h2>🤖 잃어버린 옵티머스 프라임</h2>
-          <p>
-            민이의 가장 좋아하는 장난감이 사라졌어요! 형 진이와 함께 찾아보세요.
-          </p>
-        </a>
-      </section>
+
+      <p>
+        Dokkaebi are playful, curious, and full of surprises.
+        They love adventures, games, and helping others.
+      </p>
+
+      <p>
+        Dokkaebi carry a special magical bat called a
+        <strong>도깨비 방망이</strong>.
+      </p>
+
+      <p>
+        With their bats, they can create all kinds of magic.
+      </p>
+
+    
+
+    <div class="section-card">
+
+      
+
+      <div class="hero-image">
+        <img
+          src="images/dokkaebi-brothers.png"
+          alt="Min and Jin"
+        >
+      </div>
+
+      
+
+    
+
+    <div class="section-card">
+
+      <h2>📚 The Adventures of Jin and Min</h2>
+
+      <a href="story-optimus-prime.html" class="story-card">
+
+        <h3>🤖 잃어버린 옵티머스 프라임</h3>
+
+        <p>
+          민이 가장 좋아하는 장난감이 사라졌어요.
+        </p>
+
+        <p>
+          진이와 함께 황금빛 길을 따라 찾아보세요.
+        </p>
+
+      </a>
+
+      <a href="story-ticklish-bat.html" class="story-card">
+
+      <h3>😂 간지러운 방망이</h3>
+
+      <p>
+        길을 잃은 토끼가 방망이의 비밀을 알게 돼요.
+      </p>
+
+    </a>
+
+      <a href="#" class="story-card">
+
+        <h3>🍓 딸기 소풍</h3>
+
+        <p>
+          Coming Soon
+        </p>
+
+      </a>
+
+      
     </div>
 
-    <footer class="footer">
-      <p>© 2026 Halmoni Tells</p>
-    </footer>
-  </body>
+  
+
+  <footer class="footer">
+    <p>© 2026 Halmoni Tells</p>
+  </footer>
+    
+</body>
 </html>
+

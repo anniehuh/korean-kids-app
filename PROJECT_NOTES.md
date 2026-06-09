@@ -264,6 +264,12 @@ Together they learn, help others, and grow.
 
 ---
 
+# 도깨비 방망이 규칙
+
+1. 방망이는 주인을 알아본다.
+2. 방망이는 항상 주인에게 돌아간다.
+3. 방망이의 마법은 주인과 함께 있을 때만 사용할 수 있다.
+
 # Planned Stories
 
 1. 잃어버린 옵티머스 프라임
