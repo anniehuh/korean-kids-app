@@ -224,54 +224,13 @@
         <button class="worksheet-btn" onclick="createStoryWorksheet()">
           ✏️ Create Story Worksheet
         </button>
+
+        <button class="clear-btn" onclick="clearStorySelection()">
+          🗑️ Clear Selection
+        </button>
       </div>
     </div>
     <script>
-      function toggleWord(element) {
-        element.classList.toggle("selected");
-      }
-      function getSelectedStoryWords() {
-        const selected = document.querySelectorAll(".vocab-word.selected");
-
-        const words = [];
-
-        selected.forEach((item) => {
-          words.push({
-            korean: item.querySelector(".korean").textContent,
-            english: item.querySelector(".english").textContent,
-          });
-        });
-
-        return words;
-      }
-      function practiceStoryWords() {
-        const words = getSelectedStoryWords();
-
-        if (words.length === 0) {
-          alert("Please select words first.");
-          return;
-        }
-
-        localStorage.setItem("selectedWords", JSON.stringify(words));
-
-        window.location.href = "flashcards.html";
-      }
-
-      function createStoryWorksheet() {
-        const words = getSelectedStoryWords();
-
-        if (words.length === 0) {
-          alert("Please select words first.");
-          return;
-        }
-
-        const koreanWords = words.map((word) => word.korean);
-
-        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
-
-        window.location.href = "printables.html";
-      }
-
       function toggleStoryWord(element) {
         element.classList.toggle("selected");
       }
@@ -311,10 +270,23 @@
           return;
         }
 
+        const koreanWords = words.map((word) => word.korean);
+
         localStorage.setItem("selectedWords", JSON.stringify(words));
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
         window.location.href = "printables.html";
       }
+
+      function clearStorySelection() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        selected.forEach((item) => {
+          item.classList.remove("selected");
+        });
+      }
     </script>
+
     <footer class="footer">
       <p>© 2026 Halmoni Tells</p>
     </footer>

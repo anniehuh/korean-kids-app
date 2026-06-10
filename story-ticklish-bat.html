@@ -1,23 +1,306 @@
+```html
 <!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>잃어버린 옵티머스 프라임 - Halmoni Tells</title>
+
+    <title>간지러운 방망이 - Halmoni Tells</title>
 
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .story-container {
+        max-width: 950px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .story-panel {
+        background: white;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 30px auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .story-panel img {
+        width: 100%;
+        max-width: 850px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+      }
+
+      .story-panel p {
+        font-size: 1.35rem;
+        line-height: 1.9;
+      }
+
+      .vocab-section {
+        background: #f8fbff;
+        border-radius: 20px;
+        padding: 25px;
+        margin-top: 35px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .vocab-section h2 {
+        text-align: center;
+      }
+
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .vocab-word {
+        background: white;
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+        cursor: pointer;
+        border: 3px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+
+      .vocab-word:hover {
+        background: #fffde7;
+      }
+
+      .vocab-word.selected {
+        background: #fff9c4;
+        border-color: #fbc02d;
+      }
+
+      .korean {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .english {
+        color: #666;
+        margin-top: 6px;
+      }
+
+      .story-buttons {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .story-buttons button {
+        padding: 12px 20px;
+        margin: 8px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .flashcard-btn {
+        background: #bbdefb;
+      }
+
+      .worksheet-btn {
+        background: #c8e6c9;
+      }
+
+      .clear-btn {
+        background: #ffcdd2;
+      }
+
+      .center {
+        text-align: center;
+      }
+    </style>
   </head>
-  
 
-  <nav class="navbar">
-    <a href="index.html">🏠 Home</a>
-    <a href="wordlists.html">📚 Word Lists</a>
-    <a href="printables.html">✏️ Worksheets</a>
-    <a href="stories.html" class="active">📖 Stories</a>
-    <a href="flashcards.html">🃏 Flashcards</a>
-    <a href="rewards.html">🏆 Rewards</a>
-  </nav>
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html" class="active">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+      <a href="rewards.html">🏆 Rewards</a>
+    </nav>
 
-  <div class="container">
-    </body>
+    <div class="story-container">
+      <h1 class="center">😂 간지러운 방망이</h1>
+
+      <div class="story-panel">
+        <img
+          src="images/story-ticklishbat-1.png"
+          alt="민이와 진이가 밤길을 걸어요"
+        />
+      </div>
+
+      <div class="story-panel">
+        <img src="images/story-ticklishbat-2.png" alt="길을 잃은 아기 토끼" />
+      </div>
+
+      <div class="story-panel">
+        <img
+          src="images/story-ticklishbat-3.png"
+          alt="민이가 방망이 빛으로 토끼를 안심시켜요"
+        />
+      </div>
+
+      <div class="story-panel">
+        <img
+          src="images/story-ticklishbat-4.png"
+          alt="진이가 큰 방망이로 토끼를 편안하게 해요"
+        />
+      </div>
+
+      <div class="story-panel">
+        <img
+          src="images/story-ticklishbat-5.png"
+          alt="토끼가 민이의 방망이를 잡고 간지러워해요"
+        />
+      </div>
+
+      <div class="story-panel">
+        <img
+          src="images/story-ticklishbat-6.png"
+          alt="진이가 방망이의 규칙을 설명해요"
+        />
+      </div>
+
+      <div class="vocab-section">
+        <h2>📚 오늘의 단어</h2>
+
+        <p class="center">연습하고 싶은 단어를 골라 보세요.</p>
+
+        <div class="vocab-grid">
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">방망이</div>
+            <div class="english">Bat</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">토끼</div>
+            <div class="english">Rabbit</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">길</div>
+            <div class="english">Path</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">빛</div>
+            <div class="english">Light</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">주인</div>
+            <div class="english">Owner</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">마법</div>
+            <div class="english">Magic</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">가족</div>
+            <div class="english">Family</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">웃다</div>
+            <div class="english">Laugh</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">돌아가다</div>
+            <div class="english">Go Back</div>
+          </div>
+
+          <div class="vocab-word" onclick="toggleStoryWord(this)">
+            <div class="korean">간질간질</div>
+            <div class="english">Tickle Tickle</div>
+          </div>
+        </div>
+
+        <div class="story-buttons">
+          <button class="flashcard-btn" onclick="practiceStoryWords()">
+            🃏 Practice Story Words
+          </button>
+
+          <button class="worksheet-btn" onclick="createStoryWorksheet()">
+            ✏️ Create Story Worksheet
+          </button>
+
+          <button class="clear-btn" onclick="clearStorySelection()">
+            🗑️ Clear Selection
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
+
+    <script>
+      function toggleStoryWord(element) {
+        element.classList.toggle("selected");
+      }
+
+      function getSelectedStoryWords() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+        const words = [];
+
+        selected.forEach((item) => {
+          words.push({
+            korean: item.querySelector(".korean").textContent,
+            english: item.querySelector(".english").textContent,
+            pronunciation: "",
+          });
+        });
+
+        return words;
+      }
+
+      function practiceStoryWords() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createStoryWorksheet() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select words first.");
+          return;
+        }
+
+        const koreanWords = words.map((word) => word.korean);
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
+        window.location.href = "printables.html";
+      }
+
+      function clearStorySelection() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        selected.forEach((item) => {
+          item.classList.remove("selected");
+        });
+      }
+    </script>
+  </body>
 </html>
