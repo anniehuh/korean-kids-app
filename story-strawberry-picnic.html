@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>딸기 소풍 - Halmoni Tells</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .story-container {
+        max-width: 950px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .story-header {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .story-header h1 {
+        margin-top: 0;
+        font-size: 2.4rem;
+      }
+
+      .story-header p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+
+      .story-panel {
+        background: white;
+        border-radius: 22px;
+        padding: 20px;
+        margin: 35px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-panel img {
+        width: 100%;
+        display: block;
+        border-radius: 18px;
+        margin-bottom: 18px;
+      }
+
+      .story-text {
+        background: #fffaf0;
+        border-radius: 18px;
+        padding: 22px;
+        font-size: 1.35rem;
+        line-height: 1.9;
+        text-align: center;
+      }
+
+      .story-text p {
+        margin: 10px 0;
+      }
+
+      .vocab-section {
+        background: white;
+        border-radius: 22px;
+        padding: 30px;
+        margin: 40px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .vocab-section h2 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .vocab-word {
+        background: #f8fbff;
+        border: 2px solid #dbeafe;
+        border-radius: 16px;
+        padding: 18px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .vocab-word:hover {
+        transform: translateY(-2px);
+        border-color: #90caf9;
+      }
+
+      .vocab-word.selected {
+        background: #fff3cd;
+        border-color: #f4c542;
+      }
+
+      .vocab-korean {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      .vocab-english {
+        display: block;
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .story-buttons {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      .story-buttons button,
+      .bottom-links a {
+        display: inline-block;
+        margin: 8px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        background: #f0f8ff;
+        color: #333;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .story-buttons button:hover,
+      .bottom-links a:hover {
+        background: #e8f4ff;
+      }
+
+      .bottom-links {
+        text-align: center;
+        margin: 35px 0;
+      }
+
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="lessons.html">🔤 Lessons</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html" class="active">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+      <a href="rewards.html">🏆 Rewards</a>
+    </nav>
+
+    <div class="story-container">
+      <section class="story-header">
+        <h1>🍓 딸기 소풍</h1>
+
+        <p>
+          민이와 진이가 딸기 소풍을 가요. 바구니를 잃은 다람쥐를 도와주며, 작은
+          딸기 마법을 배우는 이야기예요.
+        </p>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-1.png"
+          alt="민이와 진이가 딸기 소풍을 가는 장면"
+        />
+
+        <div class="story-text">
+          <p>어느 날 저녁,</p>
+          <p>민이와 진이는 딸기 소풍을 갔어요.</p>
+          <p>바구니에는 딸기, 김밥, 블루베리가 있었어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-2.png"
+          alt="민이가 딸기를 보고 기뻐하는 장면"
+        />
+
+        <div class="story-text">
+          <p>“딸기다!”</p>
+          <p>민이는 "나는 딸기가 제일 맛있어".</p>
+          <p>민이의 눈이 반짝였어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-3.png"
+          alt="민이와 진이가 딸기와 블루베리를 나누는 장면"
+        />
+
+        <div class="story-text">
+          <p>진이는 "나는 블루베리가 제일 맛있어."라고 말했어요.</p>
+          <p>“같이 먹자.”</p>
+          <p>민이와 진이는 맛있게 땰기와 블루베리를 먹고 있었어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-4.png"
+          alt="작은 다람쥐가 바구니를 찾는 장면"
+        />
+
+        <div class="story-text">
+          <p>그때, 작은 다람쥐가 울먹이고 있었어요.</p>
+          <p>“내 소풍 바구니가 없어졌어.”</p>
+          <p>민이와 진이는 다람쥐를 도와주기로 했어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-5.png"
+          alt="민이와 진이가 방망이 빛으로 바구니를 찾는 장면"
+        />
+
+        <div class="story-text">
+          <p>민이는 딸기빛 방망이를 흔들었어요.</p>
+          <p>작은 딸기 불빛들이 반짝반짝 나타났어요.</p>
+          <p>진이는 하얀빛 방망이로 길을 밝혔어요.</p>
+          <p>빛나는 길은 꽃 옆 돌담으로 이어졌어요.</p>
+          <p>그곳에 다람쥐의 바구니가 있었어요!</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-strawberrypicnic-6.png"
+          alt="민이와 진이와 다람쥐가 함께 소풍 음식을 먹는 장면"
+        />
+
+        <div class="story-text">
+          <p>모두 함께 음식을 나눠 먹었어요.</p>
+          <p>다람쥐도 행복하게 웃었어요.</p>
+          <p>민이의 방망이가 살짝 반짝였어요.</p>
+          <p>그리고 작은 딸기꽃 하나가 피어났어요.</p>
+        </div>
+      </section>
+
+      <section class="vocab-section">
+        <h2>🍓 오늘의 단어</h2>
+
+        <p class="center">연습하고 싶은 단어를 골라 보세요.</p>
+
+        <div class="vocab-grid">
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="딸기"
+            data-english="strawberry"
+            data-pronunciation="ttalgi"
+          >
+            <span class="vocab-korean">딸기</span>
+            <span class="vocab-english">Strawberry</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="소풍"
+            data-english="picnic"
+            data-pronunciation="sopung"
+          >
+            <span class="vocab-korean">소풍</span>
+            <span class="vocab-english">Picnic</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="김밥"
+            data-english="gimbap"
+            data-pronunciation="gimbap"
+          >
+            <span class="vocab-korean">김밥</span>
+            <span class="vocab-english">Gimbap</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="블루베리"
+            data-english="blueberry"
+            data-pronunciation="beulluberi"
+          >
+            <span class="vocab-korean">블루베리</span>
+            <span class="vocab-english">Blueberry</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="바구니"
+            data-english="basket"
+            data-pronunciation="baguni"
+          >
+            <span class="vocab-korean">바구니</span>
+            <span class="vocab-english">Basket</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="다람쥐"
+            data-english="squirrel"
+            data-pronunciation="daramjwi"
+          >
+            <span class="vocab-korean">다람쥐</span>
+            <span class="vocab-english">Squirrel</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="방망이"
+            data-english="bat"
+            data-pronunciation="bangmangi"
+          >
+            <span class="vocab-korean">방망이</span>
+            <span class="vocab-english">Bat</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="빛"
+            data-english="light"
+            data-pronunciation="bit"
+          >
+            <span class="vocab-korean">빛</span>
+            <span class="vocab-english">Light</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="꽃"
+            data-english="flower"
+            data-pronunciation="kkot"
+          >
+            <span class="vocab-korean">꽃</span>
+            <span class="vocab-english">Flower</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="같이"
+            data-english="together"
+            data-pronunciation="gachi"
+          >
+            <span class="vocab-korean">같이</span>
+            <span class="vocab-english">Together</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="찾다"
+            data-english="to find"
+            data-pronunciation="chatda"
+          >
+            <span class="vocab-korean">찾다</span>
+            <span class="vocab-english">To Find</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="먹다"
+            data-english="to eat"
+            data-pronunciation="meokda"
+          >
+            <span class="vocab-korean">먹다</span>
+            <span class="vocab-english">To Eat</span>
+          </div>
+        </div>
+
+        <div class="story-buttons">
+          <button onclick="practiceStoryWords()">
+            🃏 Practice Story Words
+          </button>
+          <button onclick="createStoryWorksheet()">
+            ✏️ Create Story Worksheet
+          </button>
+          <button onclick="clearStorySelection()">Clear Selection</button>
+        </div>
+      </section>
+
+      <div class="bottom-links">
+        <a href="stories.html">← Back to Stories</a>
+        <a href="flashcards.html">🃏 Flashcards</a>
+        <a href="printables.html">✏️ Worksheets</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
+
+    <script>
+      function toggleStoryWord(element) {
+        element.classList.toggle("selected");
+      }
+
+      function getSelectedStoryWords() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        return Array.from(selected).map((word) => {
+          return {
+            korean: word.dataset.korean,
+            english: word.dataset.english,
+            pronunciation: word.dataset.pronunciation || "",
+          };
+        });
+      }
+
+      function practiceStoryWords() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select at least one word first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createStoryWorksheet() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select at least one word first.");
+          return;
+        }
+
+        const koreanWords = words.map((word) => word.korean);
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
+        window.location.href = "printables.html";
+      }
+
+      function clearStorySelection() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        selected.forEach((word) => {
+          word.classList.remove("selected");
+        });
+      }
+    </script>
+  </body>
+</html>
