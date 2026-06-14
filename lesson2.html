@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 2 - Halmoni Tells</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .lesson-container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+      .lesson-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+      .lesson-card h1,
+      .lesson-card h2 {
+        text-align: center;
+        margin-top: 0;
+      }
+      .lesson-card p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+      }
+      .center {
+        text-align: center;
+      }
+      .sound-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin: 25px 0;
+        overflow-x: auto;
+      }
+      .sound-card {
+        border-radius: 16px;
+        padding: 14px 10px;
+        width: 105px;
+        min-width: 105px;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+        border: 2px solid #eee;
+      }
+      .sound-card .big-letter {
+        font-size: 2.7rem;
+      }
+      .sound-card .small-label {
+        font-size: 0.85rem;
+      }
+      .big-letter {
+        font-size: 3.2rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .small-label {
+        font-size: 1rem;
+        color: #555;
+      }
+      .pink {
+        background: #ffe4ec;
+      }
+      .blue {
+        background: #e7f2ff;
+      }
+      .yellow {
+        background: #fff8d9;
+      }
+      .green {
+        background: #e8f8e8;
+      }
+      .purple {
+        background: #f0e8ff;
+      }
+      .example-box {
+        background: #fffaf0;
+        border: 2px solid #f7d774;
+        border-radius: 18px;
+        padding: 22px;
+        margin: 25px auto;
+        max-width: 700px;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2;
+      }
+      .color-consonant {
+        color: #ff4d6d;
+        font-weight: bold;
+      }
+      .color-vowel {
+        color: #3f8cff;
+        font-weight: bold;
+      }
+      .syllable-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 18px;
+        margin-top: 25px;
+      }
+      .syllable-card {
+        background: #f8fbff;
+        border: 2px solid #dbeafe;
+        border-radius: 20px;
+        padding: 18px;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      }
+      .syllable-card h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 2.2rem;
+      }
+      .syllable-picture {
+        width: 100%;
+        border-radius: 16px;
+        border: 2px solid #ffd37a;
+        margin: 10px 0 14px 0;
+        display: block;
+      }
+      .meaning {
+        font-weight: bold;
+        color: #444;
+        margin: 10px 0;
+      }
+      .example-list {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .example-item {
+        background: white;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #eee;
+      }
+      .practice-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 16px;
+        margin-top: 25px;
+      }
+      .practice-card {
+        background: #f8fbff;
+        border: 2px solid #dbeafe;
+        border-radius: 18px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .practice-card:hover {
+        transform: translateY(-2px);
+        border-color: #90caf9;
+      }
+      .practice-card.selected {
+        background: #fff3cd;
+        border-color: #f4c542;
+      }
+      .button-row {
+        text-align: center;
+        margin-top: 25px;
+      }
+      .button-row button,
+      .bottom-links a {
+        display: inline-block;
+        margin: 8px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        background: #f0f8ff;
+        color: #333;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .button-row button:hover,
+      .bottom-links a:hover {
+        background: #e8f4ff;
+      }
+      .bottom-links {
+        text-align: center;
+        margin: 35px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="lessons.html" class="active">🔤 Lessons</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+      <a href="rewards.html">🏆 Rewards</a>
+    </nav>
+
+    <div class="lesson-container">
+      <section class="lesson-card">
+        <h1>Lesson 2: Learn 가, 나, 다, 라, 마</h1>
+        <p class="center">
+          In this lesson, we will learn five Korean consonants and combine them
+          with the vowel <strong>ㅏ</strong>.
+        </p>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Step 1: Meet the Consonants</h2>
+        <p class="center">These are the consonants we will learn today.</p>
+        <div class="sound-row">
+          <div class="sound-card pink">
+            <span class="big-letter">ㄱ</span
+            ><span class="small-label">g / k sound</span>
+          </div>
+          <div class="sound-card blue">
+            <span class="big-letter">ㄴ</span
+            ><span class="small-label">n sound</span>
+          </div>
+          <div class="sound-card yellow">
+            <span class="big-letter">ㄷ</span
+            ><span class="small-label">d / t sound</span>
+          </div>
+          <div class="sound-card green">
+            <span class="big-letter">ㄹ</span
+            ><span class="small-label">r / l sound</span>
+          </div>
+          <div class="sound-card purple">
+            <span class="big-letter">ㅁ</span
+            ><span class="small-label">m sound</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Step 2: Add the Vowel ㅏ</h2>
+        <p class="center">
+          The vowel <strong class="color-vowel">ㅏ</strong> makes the sound
+          <strong>ah</strong>.
+        </p>
+        <div class="example-box">
+          <p><strong>consonant + vowel = syllable</strong></p>
+          <p>
+            <strong
+              ><span class="color-consonant">ㄱ</span> +
+              <span class="color-vowel">ㅏ</span> = 가 (ga)</strong
+            >
+          </p>
+          <p>
+            <strong
+              ><span class="color-consonant">ㄴ</span> +
+              <span class="color-vowel">ㅏ</span> = 나 (na)</strong
+            >
+          </p>
+          <p>
+            <strong
+              ><span class="color-consonant">ㄷ</span> +
+              <span class="color-vowel">ㅏ</span> = 다 (da)</strong
+            >
+          </p>
+          <p>
+            <strong
+              ><span class="color-consonant">ㄹ</span> +
+              <span class="color-vowel">ㅏ</span> = 라 (ra)</strong
+            >
+          </p>
+          <p>
+            <strong
+              ><span class="color-consonant">ㅁ</span> +
+              <span class="color-vowel">ㅏ</span> = 마 (ma)</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Step 3: Read the Syllables and Learn Their Meanings</h2>
+        <p class="center">
+          Look at the silly baby hippo picture cards to help remember each
+          syllable.
+        </p>
+        <div class="syllable-grid">
+          <div class="syllable-card">
+            <h3>가</h3>
+            <img
+              src="images/lesson2-ga-card.png"
+              alt="Baby hippo saying 가 to another baby hippo"
+              class="syllable-picture"
+            />
+            <div class="meaning">가 = go</div>
+            <div class="example-list">
+              <div class="example-item">🏃 가! = Go!</div>
+              <div class="example-item">🎒 가방 = bag</div>
+              <div class="example-item">👨‍👩‍👧 가족 = family</div>
+            </div>
+          </div>
+
+          <div class="syllable-card">
+            <h3>나</h3>
+            <img
+              src="images/lesson2-na-card.png"
+              alt="Baby hippo pointing to himself for 나"
+              class="syllable-picture"
+            />
+            <div class="meaning">나 = I / me</div>
+            <div class="example-list">
+              <div class="example-item">🙂 나 = me</div>
+              <div class="example-item">🌳 나무 = tree</div>
+              <div class="example-item">🦋 나비 = butterfly</div>
+            </div>
+          </div>
+
+          <div class="syllable-card">
+            <h3>다</h3>
+            <img
+              src="images/lesson2-da-card.png"
+              alt="Hippo family together for 다"
+              class="syllable-picture"
+            />
+            <div class="meaning">다 = all / together</div>
+            <div class="example-list">
+              <div class="example-item">👨‍👩‍👧‍👦 다 = all</div>
+              <div class="example-item">🐿️ 다람쥐 = squirrel</div>
+              <div class="example-item">🦵 다리 = leg / bridge</div>
+            </div>
+          </div>
+
+          <div class="syllable-card">
+            <h3>라</h3>
+            <img
+              src="images/lesson2-ra-card.png"
+              alt="Korea and US map with 나라 for 라"
+              class="syllable-picture"
+            />
+            <div class="meaning">라 → 나라 = nation / country</div>
+            <div class="example-list">
+              <div class="example-item">🗺️ 나라 = nation</div>
+              <div class="example-item">🍜 라면 = ramen</div>
+              <div class="example-item">🎵 라 = la</div>
+            </div>
+          </div>
+
+          <div class="syllable-card">
+            <h3>마</h3>
+            <img
+              src="images/lesson2-ma-card.png"
+              alt="Mommy hippo and baby hippo for 마마"
+              class="syllable-picture"
+            />
+            <div class="meaning">마 → 마마 = mommy</div>
+            <div class="example-list">
+              <div class="example-item">👩 마마 = mommy</div>
+              <div class="example-item">✨ 마법 = magic</div>
+              <div class="example-item">🏘️ 마을 = village</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Step 4: Practice 가, 나, 다, 라, 마</h2>
+        <p class="center">Choose the syllables you want to practice.</p>
+        <div class="practice-grid">
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="가"
+            data-english="go / ga sound"
+            data-pronunciation="ga"
+          >
+            <span class="big-letter">가</span
+            ><span class="small-label">ga</span>
+          </div>
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="나"
+            data-english="I / me"
+            data-pronunciation="na"
+          >
+            <span class="big-letter">나</span
+            ><span class="small-label">na</span>
+          </div>
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="다"
+            data-english="all / da sound"
+            data-pronunciation="da"
+          >
+            <span class="big-letter">다</span
+            ><span class="small-label">da</span>
+          </div>
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="라"
+            data-english="ra sound"
+            data-pronunciation="ra"
+          >
+            <span class="big-letter">라</span
+            ><span class="small-label">ra</span>
+          </div>
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="마"
+            data-english="mommy / ma sound"
+            data-pronunciation="ma"
+          >
+            <span class="big-letter">마</span
+            ><span class="small-label">ma</span>
+          </div>
+        </div>
+        <div class="button-row">
+          <button onclick="practiceLessonWords()">
+            🃏 Practice Flashcards
+          </button>
+          <button onclick="createLessonWorksheet()">✏️ Create Worksheet</button>
+          <button onclick="selectAllWords()">Select All</button>
+          <button onclick="clearSelection()">Clear</button>
+        </div>
+      </section>
+
+      <div class="bottom-links">
+        <a href="lesson1.html">← Lesson 1</a>
+        <a href="lessons.html">Back to Lessons</a>
+        <a href="printables.html">✏️ Worksheets</a>
+      </div>
+    </div>
+
+    <footer class="footer"><p>© 2026 Halmoni Tells</p></footer>
+
+    <script>
+      function togglePracticeWord(element) {
+        element.classList.toggle("selected");
+      }
+
+      function getSelectedLessonWords() {
+        const selected = document.querySelectorAll(".practice-card.selected");
+        return Array.from(selected).map((word) => {
+          return {
+            korean: word.dataset.korean,
+            english: word.dataset.english,
+            pronunciation: word.dataset.pronunciation || "",
+          };
+        });
+      }
+
+      function selectAllWords() {
+        const cards = document.querySelectorAll(".practice-card");
+        cards.forEach((card) => card.classList.add("selected"));
+      }
+
+      function clearSelection() {
+        const selected = document.querySelectorAll(".practice-card.selected");
+        selected.forEach((card) => card.classList.remove("selected"));
+      }
+
+      function practiceLessonWords() {
+        const words = getSelectedLessonWords();
+        if (words.length === 0) {
+          alert("Please select at least one syllable first.");
+          return;
+        }
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createLessonWorksheet() {
+        const words = getSelectedLessonWords();
+        if (words.length === 0) {
+          alert("Please select at least one syllable first.");
+          return;
+        }
+        const koreanWords = words.map((word) => word.korean);
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+        window.location.href = "printables.html";
+      }
+    </script>
+  </body>
+</html>
