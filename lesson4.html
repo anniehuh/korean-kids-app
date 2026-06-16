@@ -153,19 +153,51 @@
         margin: 10px 0;
       }
 
-      .example-list {
-        margin-top: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+      .reading-practice-box {
+        background: #fffaf0;
+        border: 2px solid #f7d774;
+        border-radius: 20px;
+        padding: 24px;
+        margin: 25px auto;
+        max-width: 760px;
+        text-align: center;
       }
 
-      .example-item {
+      .reading-practice-image {
+        display: block;
+        width: 100%;
+        max-width: 650px;
+        margin: 20px auto;
+        border-radius: 18px;
+        border: 2px solid #ffd37a;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .story-text {
         background: white;
-        border-radius: 12px;
-        padding: 10px;
-        font-size: 1rem;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 18px;
+        text-align: center;
         border: 1px solid #eee;
+      }
+
+      .story-line {
+        margin: 12px 0;
+      }
+
+      .korean-line {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .english-line {
+        display: block;
+        font-size: 1rem;
+        color: #666;
+        margin-top: 3px;
       }
 
       .practice-grid {
@@ -256,6 +288,14 @@
         .sound-card {
           width: 95px;
           min-width: 95px;
+        }
+
+        .korean-line {
+          font-size: 1.35rem;
+        }
+
+        .reading-practice-box {
+          padding: 18px;
         }
       }
     </style>
@@ -364,12 +404,6 @@
               class="syllable-picture"
             />
             <div class="meaning">카 → 카드 = card</div>
-
-            <div class="example-list">
-              <div class="example-item">🃏 카드 = card</div>
-              <div class="example-item">📷 카메라 = camera</div>
-              <div class="example-item">🚗 카 = car sound / ka</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -379,13 +413,7 @@
               alt="Baby hippo and baby panda lesson card for 타"
               class="syllable-picture"
             />
-            <div class="meaning">타 → 기타</div>
-
-            <div class="example-list">
-              <div class="example-item">🚲 타요 = rides</div>
-              <div class="example-item">🐴 타다 = to ride</div>
-              <div class="example-item">👏 타! = Get on!</div>
-            </div>
+            <div class="meaning">타 → 기타 = guitar</div>
           </div>
 
           <div class="syllable-card">
@@ -396,12 +424,6 @@
               class="syllable-picture"
             />
             <div class="meaning">파 = green onion</div>
-
-            <div class="example-list">
-              <div class="example-item">🧅 파 = green onion</div>
-              <div class="example-item">🌊 파도 = wave</div>
-              <div class="example-item">💙 파랑 = blue</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -412,18 +434,54 @@
               class="syllable-picture"
             />
             <div class="meaning">하 → 하마 = hippo</div>
+          </div>
+        </div>
+      </section>
 
-            <div class="example-list">
-              <div class="example-item">🦛 하마 = hippo</div>
-              <div class="example-item">☁️ 하늘 = sky</div>
-              <div class="example-item">😄 하하 = haha</div>
+      <section class="lesson-card">
+        <h2>Step 4: Reading Practice</h2>
+        <p class="center">
+          Read the tiny story. Try to say each sentence out loud.
+        </p>
+
+        <div class="reading-practice-box">
+          <img
+            src="images/lesson4-reading-practice.png"
+            alt="Lesson 4 reading practice tiny story"
+            class="reading-practice-image"
+          />
+
+          <div class="story-text">
+            <div class="story-line">
+              <span class="korean-line">카드 봐요.</span>
+              <span class="english-line">We see a card.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">기타 쳐요.</span>
+              <span class="english-line">We play a guitar.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">파 봐요.</span>
+              <span class="english-line">We see green onions.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">하마 와요.</span>
+              <span class="english-line">The hippo comes.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">하마 웃어요.</span>
+              <span class="english-line">The hippo smiles.</span>
             </div>
           </div>
         </div>
       </section>
 
       <section class="lesson-card">
-        <h2>Step 4: Practice 카, 타, 파, 하</h2>
+        <h2>Step 5: Practice 카, 타, 파, 하</h2>
         <p class="center">Choose the syllables you want to practice.</p>
 
         <div class="practice-grid">
@@ -442,7 +500,7 @@
             class="practice-card"
             onclick="togglePracticeWord(this)"
             data-korean="타"
-            data-english="ride / ta sound"
+            data-english="guitar / ta sound"
             data-pronunciation="ta"
           >
             <span class="big-letter">타</span>

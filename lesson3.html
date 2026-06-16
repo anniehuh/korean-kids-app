@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lesson 3 - Halmoni Tells</title>
     <link rel="stylesheet" href="style.css" />
+
     <style>
       .lesson-container {
         max-width: 1000px;
@@ -152,19 +153,51 @@
         margin: 10px 0;
       }
 
-      .example-list {
-        margin-top: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+      .reading-practice-box {
+        background: #fffaf0;
+        border: 2px solid #f7d774;
+        border-radius: 20px;
+        padding: 24px;
+        margin: 25px auto;
+        max-width: 760px;
+        text-align: center;
       }
 
-      .example-item {
+      .reading-practice-image {
+        display: block;
+        width: 100%;
+        max-width: 650px;
+        margin: 20px auto;
+        border-radius: 18px;
+        border: 2px solid #ffd37a;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .story-text {
         background: white;
-        border-radius: 12px;
-        padding: 10px;
-        font-size: 1rem;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 18px;
+        text-align: center;
         border: 1px solid #eee;
+      }
+
+      .story-line {
+        margin: 12px 0;
+      }
+
+      .korean-line {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .english-line {
+        display: block;
+        font-size: 1rem;
+        color: #666;
+        margin-top: 3px;
       }
 
       .practice-grid {
@@ -255,6 +288,14 @@
         .sound-card {
           width: 95px;
           min-width: 95px;
+        }
+
+        .korean-line {
+          font-size: 1.35rem;
+        }
+
+        .reading-practice-box {
+          padding: 18px;
         }
       }
     </style>
@@ -375,12 +416,6 @@
               class="syllable-picture"
             />
             <div class="meaning">바 → 바다 = sea</div>
-
-            <div class="example-list">
-              <div class="example-item">🌊 바다 = sea</div>
-              <div class="example-item">🧺 바구니 = basket</div>
-              <div class="example-item">🍚 밥 = rice / meal</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -391,12 +426,6 @@
               class="syllable-picture"
             />
             <div class="meaning">사 → 사과 = apple</div>
-
-            <div class="example-list">
-              <div class="example-item">🍎 사과 = apple</div>
-              <div class="example-item">🦁 사자 = lion</div>
-              <div class="example-item">👤 사람 = person</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -407,12 +436,6 @@
               class="syllable-picture"
             />
             <div class="meaning">아 = ah / 아기 = baby</div>
-
-            <div class="example-list">
-              <div class="example-item">👶 아기 = baby</div>
-              <div class="example-item">💛 아빠 = dad</div>
-              <div class="example-item">😮 아! = Ah!</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -423,12 +446,6 @@
               class="syllable-picture"
             />
             <div class="meaning">자 = sleep / 자요 = sleeps</div>
-
-            <div class="example-list">
-              <div class="example-item">😴 자요 = sleeps</div>
-              <div class="example-item">📏 자 = ruler</div>
-              <div class="example-item">🚲 자전거 = bicycle</div>
-            </div>
           </div>
 
           <div class="syllable-card">
@@ -439,18 +456,59 @@
               class="syllable-picture"
             />
             <div class="meaning">차 = car / tea</div>
+          </div>
+        </div>
+      </section>
 
-            <div class="example-list">
-              <div class="example-item">🚗 차 = car</div>
-              <div class="example-item">🍵 차 = tea</div>
-              <div class="example-item">🅿️ 주차 = parking</div>
+      <section class="lesson-card">
+        <h2>Step 4: Reading Practice</h2>
+        <p class="center">
+          Read the tiny story. Try to say each sentence out loud.
+        </p>
+
+        <div class="reading-practice-box">
+          <img
+            src="images/lesson3-reading-practice.png"
+            alt="Lesson 3 reading practice tiny story"
+            class="reading-practice-image"
+          />
+
+          <div class="story-text">
+            <div class="story-line">
+              <span class="korean-line">아기 차 타요.</span>
+              <span class="english-line">The baby rides in the car.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">차 가요.</span>
+              <span class="english-line">The car goes.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">바다 봐요.</span>
+              <span class="english-line">We see the sea.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">사과 먹어요.</span>
+              <span class="english-line">We eat an apple.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">아기 웃어요.</span>
+              <span class="english-line">The baby smiles.</span>
+            </div>
+
+            <div class="story-line">
+              <span class="korean-line">아기 자요.</span>
+              <span class="english-line">The baby sleeps.</span>
             </div>
           </div>
         </div>
       </section>
 
       <section class="lesson-card">
-        <h2>Step 4: Practice 바, 사, 아, 자, 차</h2>
+        <h2>Step 5: Practice 바, 사, 아, 자, 차</h2>
         <p class="center">Choose the syllables you want to practice.</p>
 
         <div class="practice-grid">
