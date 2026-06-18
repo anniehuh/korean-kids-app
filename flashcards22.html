@@ -92,94 +92,54 @@
         document.getElementById("pronunciationInput").value = "";
       }
 
-      function getWordField(card, possibleNames) {
-        for (const name of possibleNames) {
-          if (card[name]) return card[name];
+      function showCurrentPracticeCard() {
+        if (typeof displayCard === "function") {
+          displayCard();
+          return;
         }
-        return "";
+
+        if (typeof showCard === "function") {
+          showCard();
+          return;
+        }
+
+        if (typeof updateCard === "function") {
+          updateCard();
+          return;
+        }
+
+        const card = words[currentIndex];
+        setCardText(
+          card.english || card.englishWord || "",
+          card.korean || card.koreanWord || "",
+          card.pronunciation || "",
+          "Click card to see Korean"
+        );
       }
 
-      async function randomPracticeCard() {
-        try {
-          setCardText("Loading random card...", "...", "...", "Please wait");
-
-          if (typeof firebase === "undefined" || !firebase.firestore) {
-            setCardText(
-              "Firebase not ready",
-              "...",
-              "...",
-              "Check that Firebase is loaded in script.js"
-            );
-            return;
-          }
-
-          const db = firebase.firestore();
-          const snapshot = await db.collection("words").get();
-
-          if (snapshot.empty) {
-            setCardText(
-              "No words yet",
-              "...",
-              "...",
-              "Add words first, then try Random Card"
-            );
-            return;
-          }
-
-          const firebaseWords = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-
-          let randomIndex = Math.floor(Math.random() * firebaseWords.length);
-          let card = firebaseWords[randomIndex];
-
-          // Avoid showing the exact same Firebase document twice in a row when possible.
-          if (firebaseWords.length > 1 && window.lastRandomWordId === card.id) {
-            randomIndex = (randomIndex + 1) % firebaseWords.length;
-            card = firebaseWords[randomIndex];
-          }
-
-          window.lastRandomWordId = card.id;
-
-          const english = getWordField(card, [
-            "english",
-            "englishWord",
-            "English",
-            "wordEnglish",
-          ]);
-          const korean = getWordField(card, [
-            "korean",
-            "koreanWord",
-            "Korean",
-            "wordKorean",
-          ]);
-          const pronunciation = getWordField(card, [
-            "pronunciation",
-            "Pronunciation",
-            "romanization",
-            "sound",
-          ]);
-
+      function randomPracticeCard() {
+        if (typeof words === "undefined" || !Array.isArray(words) || words.length === 0) {
           setCardText(
-            english || "Untitled word",
-            korean || "...",
-            pronunciation || "",
-            "Click card to see Korean"
-          );
-
-          document.getElementById("englishInput").value = english;
-          document.getElementById("koreanInput").value = korean;
-          document.getElementById("pronunciationInput").value = pronunciation;
-        } catch (error) {
-          console.error("Random Firebase card error:", error);
-          setCardText(
-            "Could not load random card",
+            "No words yet",
             "...",
             "...",
-            "Check Firebase rules and collection name: words"
+            "Add words first, then try Random Card"
           );
+          return;
         }
+
+        if (words.length === 1) {
+          currentIndex = 0;
+        } else {
+          let randomIndex;
+          do {
+            randomIndex = Math.floor(Math.random() * words.length);
+          } while (randomIndex === currentIndex);
+          currentIndex = randomIndex;
+        }
+
+        showCurrentPracticeCard();
+        document.getElementById("flashcardInner").classList.remove("flipped");
       }
     </script>
     <footer class="footer">
