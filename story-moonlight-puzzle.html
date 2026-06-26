@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>달빛 퍼즐 - Halmoni Tells</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .story-container {
+        max-width: 950px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .story-header {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .story-header h1 {
+        margin-top: 0;
+        font-size: 2.4rem;
+      }
+
+      .story-header p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+
+      .story-panel {
+        background: white;
+        border-radius: 22px;
+        padding: 20px;
+        margin: 35px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .story-panel img {
+        width: 100%;
+        display: block;
+        border-radius: 18px;
+        margin-bottom: 18px;
+      }
+
+      .story-text {
+        background: #fffaf0;
+        border-radius: 18px;
+        padding: 22px;
+        font-size: 1.35rem;
+        line-height: 1.9;
+        text-align: center;
+      }
+
+      .story-text p {
+        margin: 10px 0;
+      }
+
+      .vocab-section {
+        background: white;
+        border-radius: 22px;
+        padding: 30px;
+        margin: 40px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .vocab-section h2 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .vocab-section p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .vocab-word {
+        background: #f8fbff;
+        border: 2px solid #dbeafe;
+        border-radius: 16px;
+        padding: 18px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .vocab-word:hover {
+        transform: translateY(-2px);
+        border-color: #90caf9;
+      }
+
+      .vocab-word.selected {
+        background: #fff3cd;
+        border-color: #f4c542;
+      }
+
+      .vocab-korean {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      .vocab-english {
+        display: block;
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .story-buttons {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      .story-buttons button,
+      .bottom-links a {
+        display: inline-block;
+        margin: 8px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        background: #f0f8ff;
+        color: #333;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .story-buttons button:hover,
+      .bottom-links a:hover {
+        background: #e8f4ff;
+      }
+
+      .bottom-links {
+        text-align: center;
+        margin: 35px 0;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        .story-container {
+          padding: 12px;
+          margin: 15px auto;
+        }
+
+        .story-header {
+          padding: 22px;
+        }
+
+        .story-header h1 {
+          font-size: 1.9rem;
+        }
+
+        .story-panel {
+          padding: 14px;
+          margin: 25px 0;
+        }
+
+        .story-text {
+          font-size: 1.15rem;
+          padding: 18px;
+        }
+
+        .vocab-section {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <a href="lessons.html">🔤 Lessons</a>
+      <a href="wordlists.html">📚 Word Lists</a>
+      <a href="printables.html">✏️ Worksheets</a>
+      <a href="stories.html" class="active">📖 Stories</a>
+      <a href="flashcards.html">🃏 Flashcards</a>
+      <a href="rewards.html">🏆 Rewards</a>
+    </nav>
+
+    <div class="story-container">
+      <section class="story-header">
+        <h1>🌙 달빛 퍼즐</h1>
+
+        <p>
+          밝은 달빛 아래, 진이와 민이가 한옥 마루에서 이상한 빛의 퍼즐을
+          발견해요. 두 형제는 함께 배우고 도우며 마법의 길을 열어요.
+        </p>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-1.png"
+          alt="진이와 민이가 한옥 마루에 앉아 달빛을 보는 장면"
+        />
+
+        <div class="story-text">
+          <p>달이 환하게 빛나는 밤이에요.</p>
+          <p>진이와 민이가 한옥 마루에 앉아 있어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-2.png"
+          alt="민이가 마당에 생긴 반짝이는 빛의 길을 가리키는 장면"
+        />
+
+        <div class="story-text">
+          <p>“형아, 저기 봐!”</p>
+          <p>“마당에 이상한 빛의 길이 생겼어!”</p>
+          <p>민이가 반짝이는 바닥을 가리켰어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-3.png"
+          alt="진이가 달빛 퍼즐을 살펴보는 장면"
+        />
+
+        <div class="story-text">
+          <p>똑똑한 진이는 그것이 달빛 퍼즐이라는 것을 알아챘어요.</p>
+          <p>“퍼즐을 맞춰야 길이 열릴 것 같아.”</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-4.png"
+          alt="민이가 방망이를 흔들고 수박 꽃과 넝쿨이 퍼즐 조각을 움직이는 장면"
+        />
+
+        <div class="story-text">
+          <p>민이가 신나서 방망이를 흔들자,</p>
+          <p>수박 꽃과 넝쿨이 자라났어요.</p>
+          <p>넝쿨이 퍼즐 조각 하나를 톡 움직였어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-5.png"
+          alt="진이가 방망이로 달빛 퍼즐 조각을 조심스럽게 맞추는 장면"
+        />
+
+        <div class="story-text">
+          <p>진이는 방망이로 달빛을 조심스럽게 움직였어요.</p>
+          <p>마지막 퍼즐 조각이 딱 맞았어요.</p>
+        </div>
+      </section>
+
+      <section class="story-panel">
+        <img
+          src="images/story-moonlight-puzzle-6.png"
+          alt="달빛 퍼즐이 풀리고 아름다운 길이 열리며 형제가 웃는 장면"
+        />
+
+        <div class="story-text">
+          <p>퍼즐이 풀리자 마법처럼 아름다운 길이 열렸어요!</p>
+          <p>형제는 서로를 보며 활짝 웃었어요.</p>
+        </div>
+      </section>
+
+      <section class="vocab-section">
+        <h2>🌙 오늘의 단어</h2>
+
+        <p class="center">연습하고 싶은 단어를 골라 보세요.</p>
+
+        <div class="vocab-grid">
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="달"
+            data-english="moon"
+            data-pronunciation="dal"
+          >
+            <span class="vocab-korean">달</span>
+            <span class="vocab-english">Moon</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="밤"
+            data-english="night"
+            data-pronunciation="bam"
+          >
+            <span class="vocab-korean">밤</span>
+            <span class="vocab-english">Night</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="한옥"
+            data-english="hanok"
+            data-pronunciation="han-ok"
+          >
+            <span class="vocab-korean">한옥</span>
+            <span class="vocab-english">Hanok</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="마루"
+            data-english="wooden porch"
+            data-pronunciation="ma-ru"
+          >
+            <span class="vocab-korean">마루</span>
+            <span class="vocab-english">Wooden Porch</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="마당"
+            data-english="courtyard"
+            data-pronunciation="ma-dang"
+          >
+            <span class="vocab-korean">마당</span>
+            <span class="vocab-english">Courtyard</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="빛"
+            data-english="light"
+            data-pronunciation="bit"
+          >
+            <span class="vocab-korean">빛</span>
+            <span class="vocab-english">Light</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="길"
+            data-english="path"
+            data-pronunciation="gil"
+          >
+            <span class="vocab-korean">길</span>
+            <span class="vocab-english">Path</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="퍼즐"
+            data-english="puzzle"
+            data-pronunciation="peo-jeul"
+          >
+            <span class="vocab-korean">퍼즐</span>
+            <span class="vocab-english">Puzzle</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="방망이"
+            data-english="bat"
+            data-pronunciation="bang-mang-i"
+          >
+            <span class="vocab-korean">방망이</span>
+            <span class="vocab-english">Bat</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="수박"
+            data-english="watermelon"
+            data-pronunciation="su-bak"
+          >
+            <span class="vocab-korean">수박</span>
+            <span class="vocab-english">Watermelon</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="꽃"
+            data-english="flower"
+            data-pronunciation="kkot"
+          >
+            <span class="vocab-korean">꽃</span>
+            <span class="vocab-english">Flower</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="넝쿨"
+            data-english="vine"
+            data-pronunciation="neong-kul"
+          >
+            <span class="vocab-korean">넝쿨</span>
+            <span class="vocab-english">Vine</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="맞추다"
+            data-english="to fit together"
+            data-pronunciation="mat-chu-da"
+          >
+            <span class="vocab-korean">맞추다</span>
+            <span class="vocab-english">To Fit Together</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="마법"
+            data-english="magic"
+            data-pronunciation="ma-beop"
+          >
+            <span class="vocab-korean">마법</span>
+            <span class="vocab-english">Magic</span>
+          </div>
+
+          <div
+            class="vocab-word"
+            onclick="toggleStoryWord(this)"
+            data-korean="웃다"
+            data-english="to smile"
+            data-pronunciation="ut-da"
+          >
+            <span class="vocab-korean">웃다</span>
+            <span class="vocab-english">To Smile</span>
+          </div>
+        </div>
+
+        <div class="story-buttons">
+          <button onclick="practiceStoryWords()">
+            🃏 Practice Story Words
+          </button>
+
+          <button onclick="createStoryWorksheet()">
+            ✏️ Create Story Worksheet
+          </button>
+
+          <button onclick="clearStorySelection()">Clear Selection</button>
+        </div>
+      </section>
+
+      <div class="bottom-links">
+        <a href="stories.html">← Back to Stories</a>
+        <a href="flashcards.html">🃏 Flashcards</a>
+        <a href="printables.html">✏️ Worksheets</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 Halmoni Tells</p>
+    </footer>
+
+    <script>
+      function toggleStoryWord(element) {
+        element.classList.toggle("selected");
+      }
+
+      function getSelectedStoryWords() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        return Array.from(selected).map((word) => {
+          return {
+            korean: word.dataset.korean,
+            english: word.dataset.english,
+            pronunciation: word.dataset.pronunciation || "",
+          };
+        });
+      }
+
+      function practiceStoryWords() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select at least one word first.");
+          return;
+        }
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        window.location.href = "flashcards.html";
+      }
+
+      function createStoryWorksheet() {
+        const words = getSelectedStoryWords();
+
+        if (words.length === 0) {
+          alert("Please select at least one word first.");
+          return;
+        }
+
+        const koreanWords = words.map((word) => word.korean);
+
+        localStorage.setItem("selectedWords", JSON.stringify(words));
+        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
+        window.location.href = "printables.html";
+      }
+
+      function clearStorySelection() {
+        const selected = document.querySelectorAll(".vocab-word.selected");
+
+        selected.forEach((word) => {
+          word.classList.remove("selected");
+        });
+      }
+    </script>
+  </body>
+</html>
