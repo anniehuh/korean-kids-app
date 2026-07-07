@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 13 - Halmoni Tells</title>
+
+    <title>Lesson 14 - Halmoni Tells</title>
+
     <link rel="stylesheet" href="style.css" />
 
     <style>
@@ -142,17 +144,30 @@
         display: block;
       }
 
+      .word-pair {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .word-pair-row {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 10px 12px;
+      }
+
       .word-example {
-        font-size: 1.55rem;
+        font-size: 1.45rem;
         font-weight: bold;
         color: #333;
-        margin-top: 8px;
+        margin-bottom: 4px;
       }
 
       .meaning {
         font-weight: bold;
-        color: #444;
-        margin: 8px 0 10px 0;
+        color: #555;
+        margin: 0;
       }
 
       .reading-practice-box {
@@ -227,6 +242,27 @@
       .practice-card.selected {
         background: #fff3cd;
         border-color: #f4c542;
+      }
+
+      .practice-word {
+        display: block;
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #333;
+      }
+
+      .practice-meaning {
+        display: block;
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .practice-pronunciation {
+        display: block;
+        margin-top: 6px;
+        font-size: 0.85rem;
+        color: #777;
       }
 
       .button-row {
@@ -316,11 +352,11 @@
 
     <div class="lesson-container">
       <section class="lesson-card">
-        <h1>Lesson 13: Learn 고, 노, 도, 로, 모</h1>
+        <h1>Lesson 14: Learn 보, 소, 코, 토, 호</h1>
 
         <p class="center">
-          In this lesson, we will combine Korean consonants with the vowel
-          <strong>ㅗ</strong>. The vowel <strong>ㅗ</strong> makes an “oh”
+          In this lesson, we will keep practicing Korean syllables made with the
+          vowel <strong>ㅗ</strong>. The vowel <strong>ㅗ</strong> makes an “oh”
           sound.
         </p>
       </section>
@@ -332,28 +368,28 @@
 
         <div class="sound-row">
           <div class="sound-card pink">
-            <span class="big-letter">고</span>
-            <span class="small-label">go</span>
+            <span class="big-letter">보</span>
+            <span class="small-label">bo</span>
           </div>
 
           <div class="sound-card blue">
-            <span class="big-letter">노</span>
-            <span class="small-label">no</span>
+            <span class="big-letter">소</span>
+            <span class="small-label">so</span>
           </div>
 
           <div class="sound-card yellow">
-            <span class="big-letter">도</span>
-            <span class="small-label">do</span>
+            <span class="big-letter">코</span>
+            <span class="small-label">ko</span>
           </div>
 
           <div class="sound-card green">
-            <span class="big-letter">로</span>
-            <span class="small-label">ro</span>
+            <span class="big-letter">토</span>
+            <span class="small-label">to</span>
           </div>
 
           <div class="sound-card purple">
-            <span class="big-letter">모</span>
-            <span class="small-label">mo</span>
+            <span class="big-letter">호</span>
+            <span class="small-label">ho</span>
           </div>
         </div>
       </section>
@@ -362,29 +398,29 @@
         <h2>Step 2: Add the Vowel ㅗ and Read the Syllables</h2>
 
         <p class="center">
-          The vowel <strong>ㅗ</strong> sounds like “oh.” When we add
-          <strong>ㅗ</strong> to consonants, we can read new syllables.
+          The vowel <strong>ㅗ</strong> sounds like “oh.” When we combine
+          consonants with <strong>ㅗ</strong>, we can read new syllables.
         </p>
 
         <div class="example-box">
           <p>
-            <strong> ㄱ + <span class="color-vowel">ㅗ</span> = 고 </strong>
+            <strong> ㅂ + <span class="color-vowel">ㅗ</span> = 보 </strong>
           </p>
 
           <p>
-            <strong> ㄴ + <span class="color-vowel">ㅗ</span> = 노 </strong>
+            <strong> ㅅ + <span class="color-vowel">ㅗ</span> = 소 </strong>
           </p>
 
           <p>
-            <strong> ㄷ + <span class="color-vowel">ㅗ</span> = 도 </strong>
+            <strong> ㅋ + <span class="color-vowel">ㅗ</span> = 코 </strong>
           </p>
 
           <p>
-            <strong> ㄹ + <span class="color-vowel">ㅗ</span> = 로 </strong>
+            <strong> ㅌ + <span class="color-vowel">ㅗ</span> = 토 </strong>
           </p>
 
           <p>
-            <strong> ㅁ + <span class="color-vowel">ㅗ</span> = 모 </strong>
+            <strong> ㅎ + <span class="color-vowel">ㅗ</span> = 호 </strong>
           </p>
         </div>
       </section>
@@ -393,73 +429,93 @@
         <h2>Step 3: See the Syllables in Words</h2>
 
         <p class="center">
-          Look at each picture card to see the syllable inside a Korean word.
+          Look at each picture card and learn both Lesson 14 words.
         </p>
 
         <div class="syllable-grid">
           <div class="syllable-card">
-            <h3>고</h3>
+            <h3>보</h3>
 
             <img
-              src="images/lesson13-go-card.png"
-              alt="Lesson 13 syllable card for 고 with 고기"
+              src="images/lesson14-bo-card.png"
+              alt="Lesson 14 syllable card for 보 with 보트 "
               class="syllable-picture"
             />
 
-            <div class="word-example">고기</div>
-            <div class="meaning">meat</div>
+            <div class="word-pair">
+              <div class="word-pair-row">
+                <div class="word-example">보트</div>
+                <div class="meaning">boat</div>
+              </div>
+            </div>
           </div>
 
           <div class="syllable-card">
-            <h3>노</h3>
+            <h3>소</h3>
 
             <img
-              src="images/lesson13-no-card.png"
-              alt="Lesson 13 syllable card for 노 with 노래"
+              src="images/lesson14-so-card.png"
+              alt="Lesson 14 syllable card for 소 with 소 "
               class="syllable-picture"
             />
 
-            <div class="word-example">노래</div>
-            <div class="meaning">song</div>
+            <div class="word-pair">
+              <div class="word-pair-row">
+                <div class="word-example">소</div>
+                <div class="meaning">cow</div>
+              </div>
+            </div>
           </div>
 
           <div class="syllable-card">
-            <h3>도</h3>
+            <h3>코</h3>
 
             <img
-              src="images/lesson13-do-card.png"
-              alt="Lesson 13 syllable card for 도 with 도로"
+              src="images/lesson14-ko-card.png"
+              alt="Lesson 14 syllable card for 코 with 코끼리 코"
               class="syllable-picture"
             />
 
-            <div class="word-example">도토리</div>
-            <div class="meaning">acorn</div>
+            <div class="word-pair">
+              <div class="word-pair-row">
+                <div class="word-example">코끼리 코</div>
+                <div class="meaning">elephant nose</div>
+              </div>
+            </div>
           </div>
 
           <div class="syllable-card">
-            <h3>로</h3>
+            <h3>토</h3>
 
             <img
-              src="images/lesson13-ro-card.png"
-              alt="Lesson 13 syllable card for 로 with 로봇"
+              src="images/lesson14-to-card.png"
+              alt="Lesson 14 syllable card for 토 with 토끼 "
               class="syllable-picture"
             />
 
-            <div class="word-example">로봇</div>
-            <div class="meaning">robot</div>
+            <div class="word-pair">
+              <div class="word-pair-row">
+                <div class="word-example">토끼</div>
+                <div class="meaning">rabbit</div>
+              </div>
+            </div>
           </div>
 
           <div class="syllable-card">
-            <h3>모</h3>
+            <h3>호</h3>
 
             <img
-              src="images/lesson13-mo-card.png"
-              alt="Lesson 13 syllable card for 모 with 모자"
+              src="images/lesson14-ho-card.png"
+              alt="Lesson 14 syllable card for 호 with 호랑이 "
               class="syllable-picture"
             />
 
-            <div class="word-example">모자</div>
-            <div class="meaning">hat</div>
+            <div class="word-pair">
+              <div class="word-pair-row">
+                <div class="word-example">호랑이</div>
+                <div class="meaning">tiger</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -467,112 +523,183 @@
       <section class="lesson-card">
         <h2>Step 4: Reading Practice</h2>
 
-        <p class="center">
-          Read this tiny story using the syllables from Lesson 13.
-        </p>
+        <p class="center">Read this tiny story using words from Lesson 14.</p>
 
         <div class="reading-practice-box">
           <img
-            src="images/lesson13-reading-practice.png"
-            alt="Lesson 13 reading practice tiny story"
+            src="images/lesson14-reading-practice.png"
+            alt="Lesson 14 reading practice tiny story"
             class="reading-practice-image"
           />
 
           <div class="story-text">
             <div class="story-line">
-              <span class="korean-line">모자 써요.</span>
-              <span class="english-line">We wear hats.</span>
+              <span class="korean-line"> 호수에 보트가 있어요. </span>
+
+              <span class="english-line"> There is a boat on the lake. </span>
             </div>
 
             <div class="story-line">
-              <span class="korean-line">도로에 도토리가 많아요.</span>
+              <span class="korean-line">
+                보트에서 소를 봐요. 소리가 나요.
+              </span>
+
               <span class="english-line">
-                There are many acorns on the road.
+                We see a cow from the boat. We hear a sound.
               </span>
             </div>
 
             <div class="story-line">
-              <span class="korean-line">로봇 가지고 놀아요.</span>
-              <span class="english-line"> We play with a robot. </span>
+              <span class="korean-line"> 코끼리 코가 길어요. </span>
+
+              <span class="english-line"> The elephant’s nose is long. </span>
             </div>
 
             <div class="story-line">
-              <span class="korean-line">노래 해요.</span>
-              <span class="english-line">We sing a song.</span>
+              <span class="korean-line"> 토끼가 토마토 먹어요. </span>
+
+              <span class="english-line"> The rabbit eats a tomato. </span>
             </div>
 
             <div class="story-line">
-              <span class="korean-line">고기 먹어요.</span>
-              <span class="english-line">We eat meat.</span>
+              <span class="korean-line"> 호랑이가 호수에 와요. </span>
+
+              <span class="english-line"> The tiger comes to the lake. </span>
             </div>
 
             <div class="story-line">
-              <span class="korean-line">오리가 오이 먹어요.</span>
-              <span class="english-line"> The duck eats cucumber. </span>
+              <span class="korean-line"> 다 같이 봐요. </span>
+
+              <span class="english-line"> Everyone looks together. </span>
             </div>
           </div>
         </div>
       </section>
 
       <section class="lesson-card">
-        <h2>Step 5: Practice 고, 노, 도, 로, 모</h2>
+        <h2>Step 5: Practice Lesson 14 Words</h2>
 
-        <p class="center">Choose the syllables you want to practice.</p>
+        <p class="center">Choose the words you want to practice.</p>
 
         <div class="practice-grid">
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="고"
-            data-english="go syllable"
-            data-pronunciation="go"
+            data-korean="보트"
+            data-english="boat"
+            data-pronunciation="boteu"
           >
-            <span class="big-letter">고</span>
-            <span class="small-label">go</span>
+            <span class="practice-word">보트</span>
+            <span class="practice-meaning">boat</span>
+            <span class="practice-pronunciation">boteu</span>
           </div>
 
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="노"
-            data-english="no syllable"
-            data-pronunciation="no"
+            data-korean="보다"
+            data-english="to see / look"
+            data-pronunciation="boda"
           >
-            <span class="big-letter">노</span>
-            <span class="small-label">no</span>
+            <span class="practice-word">보다</span>
+            <span class="practice-meaning">to see / look</span>
+            <span class="practice-pronunciation">boda</span>
           </div>
 
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="도"
-            data-english="do syllable"
-            data-pronunciation="do"
+            data-korean="소"
+            data-english="cow"
+            data-pronunciation="so"
           >
-            <span class="big-letter">도</span>
-            <span class="small-label">do</span>
+            <span class="practice-word">소</span>
+            <span class="practice-meaning">cow</span>
+            <span class="practice-pronunciation">so</span>
           </div>
 
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="로"
-            data-english="ro syllable"
-            data-pronunciation="ro"
+            data-korean="소리"
+            data-english="sound"
+            data-pronunciation="sori"
           >
-            <span class="big-letter">로</span>
-            <span class="small-label">ro</span>
+            <span class="practice-word">소리</span>
+            <span class="practice-meaning">sound</span>
+            <span class="practice-pronunciation">sori</span>
           </div>
 
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="모"
-            data-english="mo syllable"
-            data-pronunciation="mo"
+            data-korean="코끼리"
+            data-english="elephant"
+            data-pronunciation="kokkiri"
           >
-            <span class="big-letter">모</span>
-            <span class="small-label">mo</span>
+            <span class="practice-word">코끼리</span>
+            <span class="practice-meaning">elephant</span>
+            <span class="practice-pronunciation">kokkiri</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="코"
+            data-english="nose"
+            data-pronunciation="ko"
+          >
+            <span class="practice-word">코</span>
+            <span class="practice-meaning">nose</span>
+            <span class="practice-pronunciation">ko</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="토끼"
+            data-english="rabbit"
+            data-pronunciation="tokki"
+          >
+            <span class="practice-word">토끼</span>
+            <span class="practice-meaning">rabbit</span>
+            <span class="practice-pronunciation">tokki</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="토마토"
+            data-english="tomato"
+            data-pronunciation="tomato"
+          >
+            <span class="practice-word">토마토</span>
+            <span class="practice-meaning">tomato</span>
+            <span class="practice-pronunciation">tomato</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="호랑이"
+            data-english="tiger"
+            data-pronunciation="horangi"
+          >
+            <span class="practice-word">호랑이</span>
+            <span class="practice-meaning">tiger</span>
+            <span class="practice-pronunciation">horangi</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="호수"
+            data-english="lake"
+            data-pronunciation="hosu"
+          >
+            <span class="practice-word">호수</span>
+            <span class="practice-meaning">lake</span>
+            <span class="practice-pronunciation">hosu</span>
           </div>
         </div>
 
@@ -590,7 +717,7 @@
       </section>
 
       <div class="bottom-links">
-        <a href="lesson12.html">← Lesson 12</a>
+        <a href="lesson13.html">← Lesson 13</a>
         <a href="lessons.html">Back to Lessons</a>
         <a href="printables.html">✏️ Worksheets</a>
       </div>
@@ -637,11 +764,12 @@
         const words = getSelectedLessonWords();
 
         if (words.length === 0) {
-          alert("Please select at least one syllable first.");
+          alert("Please select at least one word first.");
           return;
         }
 
         localStorage.setItem("selectedWords", JSON.stringify(words));
+
         window.location.href = "flashcards.html";
       }
 
@@ -649,18 +777,18 @@
         const words = getSelectedLessonWords();
 
         if (words.length === 0) {
-          alert("Please select at least one syllable first.");
+          alert("Please select at least one word first.");
           return;
         }
 
         const koreanWords = words.map((word) => word.korean);
 
         localStorage.setItem("selectedWords", JSON.stringify(words));
-        localStorage.setItem("worksheetWords", JSON.stringify(koreanWords));
+
+        localStorage.setItem(ㅣ"worksheetWords", JSON.stringify(koreanWords));
 
         window.location.href = "printables.html";
       }
     </script>
   </body>
 </html>
-```
