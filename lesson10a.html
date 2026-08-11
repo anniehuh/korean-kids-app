@@ -37,6 +37,45 @@
         text-align: center;
       }
 
+      .review-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 18px;
+        margin-top: 25px;
+      }
+
+      .review-group {
+        background: #f8fbff;
+        border: 2px solid #dbeafe;
+        border-radius: 20px;
+        padding: 18px;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .review-group h3 {
+        margin-bottom: 14px;
+        font-size: 1.25rem;
+      }
+
+      .word-chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .word-chip {
+        display: inline-block;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+      }
+
       .reading-practice-box {
         background: #fffaf0;
         border: 2px solid #f7d774;
@@ -45,14 +84,6 @@
         margin: 25px auto;
         max-width: 850px;
         text-align: center;
-      }
-
-      .reading-story-block {
-        background: white;
-        border-radius: 18px;
-        border: 1px solid #eee;
-        padding: 20px;
-        margin: 24px auto;
       }
 
       .reading-practice-image {
@@ -65,13 +96,19 @@
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
       }
 
+      .stories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        margin-top: 20px;
+      }
+
       .story-text {
-        background: #ffffff;
+        background: white;
         border-radius: 16px;
         padding: 20px;
         text-align: center;
         border: 1px solid #eee;
-        margin-top: 16px;
       }
 
       .story-text h3 {
@@ -204,10 +241,6 @@
         .reading-practice-box {
           padding: 18px;
         }
-
-        .reading-story-block {
-          padding: 14px;
-        }
       }
     </style>
   </head>
@@ -225,62 +258,157 @@
 
     <div class="lesson-container">
       <section class="lesson-card">
-        <h1>Lesson 10: Review Basic Consonants and Vowels</h1>
+        <h1>Lesson 10: Review Vowels</h1>
         <p class="center">
-          In this lesson, we will review basic Korean consonant and vowel words
-          through four tiny Korean stories.
+          In this lesson, we will review vowels from Lessons 7, 8, and 9 through
+          two tiny Korean stories.
         </p>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Vowels We Reviewed</h2>
+        <p class="center">
+          These are the vowels we learned in Lessons 7, 8, and 9.
+        </p>
+
+        <div class="review-section">
+          <div class="review-group">
+            <h3>Lesson 7 Vowels</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">ㅏ</span>
+              <span class="word-chip">ㅑ</span>
+              <span class="word-chip">ㅓ</span>
+              <span class="word-chip">ㅕ</span>
+              <span class="word-chip">ㅗ</span>
+            </div>
+          </div>
+
+          <div class="review-group">
+            <h3>Lesson 8 Vowels</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">ㅛ</span>
+              <span class="word-chip">ㅜ</span>
+              <span class="word-chip">ㅠ</span>
+              <span class="word-chip">ㅡ</span>
+              <span class="word-chip">ㅣ</span>
+            </div>
+          </div>
+
+          <div class="review-group">
+            <h3>Lesson 9 Vowels</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">ㅐ</span>
+              <span class="word-chip">ㅔ</span>
+              <span class="word-chip">ㅖ</span>
+              <span class="word-chip">ㅘ</span>
+              <span class="word-chip">ㅢ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card">
+        <h2>Words We Reviewed</h2>
+        <p class="center">
+          These are the vowel words from Lessons 7, 8, and 9.
+        </p>
+
+        <div class="review-section">
+          <div class="review-group">
+            <h3>Lesson 7 Words</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">아가 = baby</span>
+              <span class="word-chip">야구 = baseball</span>
+              <span class="word-chip">엄마 = mom</span>
+              <span class="word-chip">여우 = fox</span>
+              <span class="word-chip">오이 = cucumber</span>
+            </div>
+          </div>
+
+          <div class="review-group">
+            <h3>Lesson 8 Words</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">요요 = yoyo</span>
+              <span class="word-chip">우유 = milk</span>
+              <span class="word-chip">유리 = glass</span>
+              <span class="word-chip">으악 = yikes</span>
+              <span class="word-chip">이모 = aunt</span>
+            </div>
+          </div>
+
+          <div class="review-group">
+            <h3>Lesson 9 Words</h3>
+            <div class="word-chip-list">
+              <span class="word-chip">개 = dog</span>
+              <span class="word-chip">게 = crab</span>
+              <span class="word-chip">시계 = clock</span>
+              <span class="word-chip">과자 = snack</span>
+              <span class="word-chip">의자 = chair</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="lesson-card">
         <h2>Step 1: Reading Practice</h2>
         <p class="center">
-          Read the four tiny stories. Try to say each Korean sentence out loud.
+          Read the two tiny vowel review stories. Try to say each Korean
+          sentence out loud.
         </p>
 
         <div class="reading-practice-box">
-          <div class="reading-story-block">
-            <h3>Practice 1</h3>
+          <img
+            src="images/lesson10-reading-practice.png"
+            alt="Lesson 10 vowel review reading practice with two tiny stories"
+            class="reading-practice-image"
+          />
 
-            <img
-              src="images/lesson10-reading-practice1.png"
-              alt="Lesson 10 reading practice 1"
-              class="reading-practice-image"
-            />
+          <div class="stories-grid">
+            <div class="story-text">
+              <h3>Story 1</h3>
 
-            
+              <div class="story-line">
+                <span class="korean-line">아가 와요.</span>
+                <span class="english-line">The baby comes.</span>
+              </div>
 
-          <div class="reading-story-block">
-            <h3>Practice 2</h3>
+              <div class="story-line">
+                <span class="korean-line">이모 와요.</span>
+                <span class="english-line">Aunt comes.</span>
+              </div>
 
-            <img
-              src="images/lesson10-reading-practice2.png"
-              alt="Lesson 10 reading practice 2"
-              class="reading-practice-image"
-            />
+              <div class="story-line">
+                <span class="korean-line">요요 해요.</span>
+                <span class="english-line">We play yoyo.</span>
+              </div>
 
-            
-          <div class="reading-story-block">
-            <h3>Practice 3</h3>
+              <div class="story-line">
+                <span class="korean-line">우유 마셔요.</span>
+                <span class="english-line">We drink milk.</span>
+              </div>
+            </div>
 
-            <img
-              src="images/lesson10-reading-practice3.png"
-              alt="Lesson 10 reading practice 3"
-              class="reading-practice-image"
-            />
+            <div class="story-text">
+              <h3>Story 2</h3>
 
-            
+              <div class="story-line">
+                <span class="korean-line">개 와요.</span>
+                <span class="english-line">The dog comes.</span>
+              </div>
 
-          <div class="reading-story-block">
-            <h3>Practice 4</h3>
+              <div class="story-line">
+                <span class="korean-line">게 봐요.</span>
+                <span class="english-line">We see a crab.</span>
+              </div>
 
-            <img
-              src="images/lesson10-reading-practice4.png"
-              alt="Lesson 10 reading practice 4"
-              class="reading-practice-image"
-            />
+              <div class="story-line">
+                <span class="korean-line">과자 먹어요.</span>
+                <span class="english-line">We eat a snack.</span>
+              </div>
 
-         
+              <div class="story-line">
+                <span class="korean-line">의자에 앉아요.</span>
+                <span class="english-line">We sit on a chair.</span>
               </div>
             </div>
           </div>
@@ -292,210 +420,6 @@
         <p class="center">Choose the review words you want to practice.</p>
 
         <div class="practice-grid">
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="가"
-            data-english="go"
-            data-pronunciation="ga"
-          >
-            <span class="big-letter">가</span>
-            <span class="small-label">go</span>
-            <span class="tiny-pronunciation">ga</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="나"
-            data-english="I / me"
-            data-pronunciation="na"
-          >
-            <span class="big-letter">나</span>
-            <span class="small-label">I / me</span>
-            <span class="tiny-pronunciation">na</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="너"
-            data-english="you"
-            data-pronunciation="neo"
-          >
-            <span class="big-letter">너</span>
-            <span class="small-label">you</span>
-            <span class="tiny-pronunciation">neo</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="나라"
-            data-english="country"
-            data-pronunciation="na-ra"
-          >
-            <span class="big-letter">나라</span>
-            <span class="small-label">country</span>
-            <span class="tiny-pronunciation">na-ra</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="마마"
-            data-english="mommy"
-            data-pronunciation="ma-ma"
-          >
-            <span class="big-letter">마마</span>
-            <span class="small-label">mommy</span>
-            <span class="tiny-pronunciation">ma-ma</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="바다"
-            data-english="sea"
-            data-pronunciation="ba-da"
-          >
-            <span class="big-letter">바다</span>
-            <span class="small-label">sea</span>
-            <span class="tiny-pronunciation">ba-da</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="사과"
-            data-english="apple"
-            data-pronunciation="sa-gwa"
-          >
-            <span class="big-letter">사과</span>
-            <span class="small-label">apple</span>
-            <span class="tiny-pronunciation">sa-gwa</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="차"
-            data-english="car / tea"
-            data-pronunciation="cha"
-          >
-            <span class="big-letter">차</span>
-            <span class="small-label">car / tea</span>
-            <span class="tiny-pronunciation">cha</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="카드"
-            data-english="card"
-            data-pronunciation="ka-deu"
-          >
-            <span class="big-letter">카드</span>
-            <span class="small-label">card</span>
-            <span class="tiny-pronunciation">ka-deu</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="기타"
-            data-english="guitar"
-            data-pronunciation="gi-ta"
-          >
-            <span class="big-letter">기타</span>
-            <span class="small-label">guitar</span>
-            <span class="tiny-pronunciation">gi-ta</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="파"
-            data-english="green onion"
-            data-pronunciation="pa"
-          >
-            <span class="big-letter">파</span>
-            <span class="small-label">green onion</span>
-            <span class="tiny-pronunciation">pa</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="하마"
-            data-english="hippo"
-            data-pronunciation="ha-ma"
-          >
-            <span class="big-letter">하마</span>
-            <span class="small-label">hippo</span>
-            <span class="tiny-pronunciation">ha-ma</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="까다"
-            data-english="to peel"
-            data-pronunciation="kka-da"
-          >
-            <span class="big-letter">까다</span>
-            <span class="small-label">to peel</span>
-            <span class="tiny-pronunciation">kka-da</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="따다"
-            data-english="to pick"
-            data-pronunciation="tta-da"
-          >
-            <span class="big-letter">따다</span>
-            <span class="small-label">to pick</span>
-            <span class="tiny-pronunciation">tta-da</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="아빠"
-            data-english="dad"
-            data-pronunciation="a-ppa"
-          >
-            <span class="big-letter">아빠</span>
-            <span class="small-label">dad</span>
-            <span class="tiny-pronunciation">a-ppa</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="싸다"
-            data-english="to wrap"
-            data-pronunciation="ssa-da"
-          >
-            <span class="big-letter">싸다</span>
-            <span class="small-label">to wrap</span>
-            <span class="tiny-pronunciation">ssa-da</span>
-          </div>
-
-          <div
-            class="practice-card"
-            onclick="togglePracticeWord(this)"
-            data-korean="짜다"
-            data-english="salty"
-            data-pronunciation="jja-da"
-          >
-            <span class="big-letter">짜다</span>
-            <span class="small-label">salty</span>
-            <span class="tiny-pronunciation">jja-da</span>
-          </div>
-
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
@@ -595,6 +519,18 @@
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
+            data-korean="으악"
+            data-english="yikes"
+            data-pronunciation="eu-ak"
+          >
+            <span class="big-letter">으악</span>
+            <span class="small-label">yikes</span>
+            <span class="tiny-pronunciation">eu-ak</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
             data-korean="이모"
             data-english="aunt"
             data-pronunciation="i-mo"
@@ -607,13 +543,61 @@
           <div
             class="practice-card"
             onclick="togglePracticeWord(this)"
-            data-korean="으악"
-            data-english="yikes!"
-            data-pronunciation="eu-ak"
+            data-korean="개"
+            data-english="dog"
+            data-pronunciation="gae"
           >
-            <span class="big-letter">으악</span>
-            <span class="small-label">yikes!</span>
-            <span class="tiny-pronunciation">eu-ak</span>
+            <span class="big-letter">개</span>
+            <span class="small-label">dog</span>
+            <span class="tiny-pronunciation">gae</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="게"
+            data-english="crab"
+            data-pronunciation="ge"
+          >
+            <span class="big-letter">게</span>
+            <span class="small-label">crab</span>
+            <span class="tiny-pronunciation">ge</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="시계"
+            data-english="clock"
+            data-pronunciation="si-gye"
+          >
+            <span class="big-letter">시계</span>
+            <span class="small-label">clock</span>
+            <span class="tiny-pronunciation">si-gye</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="과자"
+            data-english="snack"
+            data-pronunciation="gwa-ja"
+          >
+            <span class="big-letter">과자</span>
+            <span class="small-label">snack</span>
+            <span class="tiny-pronunciation">gwa-ja</span>
+          </div>
+
+          <div
+            class="practice-card"
+            onclick="togglePracticeWord(this)"
+            data-korean="의자"
+            data-english="chair"
+            data-pronunciation="ui-ja"
+          >
+            <span class="big-letter">의자</span>
+            <span class="small-label">chair</span>
+            <span class="tiny-pronunciation">ui-ja</span>
           </div>
         </div>
 
